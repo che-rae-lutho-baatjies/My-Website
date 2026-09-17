@@ -1,9 +1,31 @@
 /* =========================================================
    ELITE WEAR - EDITABLE CSS TEMPLATE
    =========================================================
-   This stylesheet controls all pages in the website.
-   You can edit the values marked with comments such as
-   "CHANGE HERE" to customise colours, spacing, fonts and sizes.
+   CSS BASIC SYNTAX GUIDE
+
+   selector {
+       property: value;
+   }
+
+   Example:
+   .card {
+       background: #ffffff;
+       padding: 25px;
+       border-radius: 10px;
+   }
+
+   Common CSS properties:
+   - color: changes text colour
+   - background: changes background colour
+   - font-size: changes text size
+   - padding: adds space inside an element
+   - margin: adds space outside an element
+   - border: adds a border
+   - border-radius: rounds corners
+   - display: controls element layout
+   - width / height: controls element size
+
+   Edit the values marked "CHANGE HERE" to customise the website.
    ========================================================= */
 
 /* =====================
