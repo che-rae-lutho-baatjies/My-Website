@@ -11,6 +11,7 @@
 body { font-family: Arial, Helvetica, sans-serif; /* CHANGE HERE: web-safe font */ background: #f5f2ed; /* CHANGE HERE */ color: #333; line-height: 1.6; }
 h1, h2, h3 { font-family: Arial, Helvetica, sans-serif; /* CHANGE HERE: heading font */ }
 a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; /* Responsive image default */ }
 
 /* ===================== 2. HEADER & NAVIGATION ===================== */
 .site-header, header { background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; }
@@ -50,6 +51,7 @@ a { text-decoration: none; color: inherit; }
 .product, .product-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px #00000012; transition: .3s; }
 .product:hover, .product-card:hover { transform: translateY(-5px); }
 .product-img { height: 180px; background: #ded9d2; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+.product-img img { width: 100%; height: 100%; object-fit: cover; }
 .product-info { padding: 22px; }
 .product-info h2, .product-info h3 { margin-bottom: 8px; }
 .price { font-weight: bold; font-size: 18px; margin-top: 10px; }
@@ -98,6 +100,7 @@ textarea { min-height: 140px; resize: vertical; }
     .cards, .product-grid, .contact-cards, .faq-grid { grid-template-columns: 1fr; }
     .container { padding: 40px 18px; }
     .about-box, .form { padding: 22px; }
+    .product-img { height: 220px; }
 }
 
 @media (max-width: 500px) {
@@ -108,4 +111,6 @@ textarea { min-height: 140px; resize: vertical; }
     .hero p { font-size: 17px; }
     .section-title h1, .section-title h2 { font-size: 28px; }
     .cart-item { flex-direction: column; }
+    .product-img { height: 180px; }
+    .product-img img { object-fit: contain; }
 }
