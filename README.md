@@ -42,7 +42,7 @@ The practical development is separated into two main parts:
 - **Part 1 – HTML:** structure, content, semantic elements, forms, navigation and accessibility attributes.
 - **Part 2 – CSS:** colours, typography, spacing, grids, cards, buttons, navigation states and responsive layouts.
 
-JavaScript is used only where interaction is required, such as the enquiry-form confirmation.
+JavaScript is used where interaction is required, such as the enquiry-form confirmation.
 
 The design keeps the existing beige, cream, white and dark-grey colour palette while using a readable web-safe sans-serif font.
 
@@ -82,28 +82,28 @@ HTML5 is used to create the structure and content of the website. The project us
 
 ### Main HTML features
 
-- Five original business-content areas: Home, About, Products, Enquiry and Contact.
+- Home, About, Products, Enquiry and Contact pages.
 - Additional Customer Login, Shopping Cart and FAQ pages to align the website with the updated sitemap.
 - Semantic elements such as `header`, `nav`, `main`, `section`, `article` and `footer`.
 - Descriptive page titles and meta descriptions.
 - Navigation links connecting all major pages.
-- Active navigation-state classes.
+- Active navigation-state classes and `aria-current` on the current page where appropriate.
 - Product and category content.
 - Enquiry form with labels and appropriate input types.
 - Customer-login form.
 - Shopping-cart interface.
 - FAQ content for additional information depth.
 - `aria-label` and `aria-live` attributes where they improve accessibility.
-- Descriptive alternative text/labels for visual content.
+- Descriptive labels for visual icons and meaningful alternative text for future image assets.
 - Relative links between files in the repository.
-- CSS stylesheet linking through the `<link>` element.
+- External CSS stylesheet linking through the `<link>` element.
 
 ### HTML example
 
 ```html
 <header class="site-header">
     <nav class="main-nav" aria-label="Main navigation">
-        <a class="active nav-link" href="index.html">Home</a>
+        <a class="active nav-link" href="index.html" aria-current="page">Home</a>
         <a class="nav-link" href="../Pages/products.html">Products</a>
         <a class="nav-link" href="../Pages/cart.html">Shopping Cart</a>
     </nav>
@@ -153,21 +153,13 @@ CSS3 controls the presentation and layout of the ELITE WEAR website. Responsive 
 - Single-column layouts on narrow screens.
 - Responsive image rules using `max-width: 100%` and `height: auto`.
 - Product-image sizing adjustments at tablet and mobile breakpoints.
-- Editable comments for complex or customisable CSS sections.
+- Concise comments for editable/customisable CSS sections.
 
 ### CSS default-style example
 
 ```css
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
 ```
 
 ### CSS typography example
@@ -312,14 +304,11 @@ The current repository is a static front-end project, so database-driven account
 
 ## 8. Folder Structure
 
-The project uses a logical folder hierarchy:
-
 ```text
 My-Website/
 │
 ├── index/
 │   └── index.html
-│
 ├── Pages/
 │   ├── about.html
 │   ├── products.html
@@ -328,16 +317,12 @@ My-Website/
 │   ├── login.html
 │   ├── faq.html
 │   └── contact.html
-│
 ├── css/
 │   └── style.css
-│
 ├── assets/
 │   └── (future images and media)
-│
 ├── js/
 │   └── (future external JavaScript files)
-│
 └── README.md
 ```
 
@@ -389,6 +374,7 @@ The website includes:
 - Appropriate input types such as `email` and `tel`.
 - Descriptive labels for visual icons.
 - `aria-live` feedback for the enquiry response.
+- `aria-current` for current navigation pages where appropriate.
 - Viewport meta tags.
 - Flexible CSS Grid layouts.
 - Responsive media queries for tablet and mobile layouts.
@@ -428,26 +414,24 @@ The project uses incremental and descriptive commits. The repository contains mu
 
 ## 14. Changelog
 
-The following changelog records the main development stages of the website:
+The following changelog records the main development stages of the website. The entries below use the actual commits that were verified in the repository.
 
 | Commit | Development change |
 |---|---|
 | `b38f625` | Created an editable external CSS template for the website pages. |
 | `d01a002` | Updated the README with HTML and CSS features and syntax. |
-| `118ff10` | Added the Products page to match the updated sitemap. |
-| `21a419b6` | Added the Shopping Cart page. |
-| `48b9c147` | Added the Customer Login page. |
-| `c4c02c9` | Added the FAQ page for additional website content. |
+| `c335792` | Replaced the Services page with the Products page. |
 | `332a008` | Improved the home page navigation, semantics and branding. |
 | `2900a196` | Improved the About page goals and navigation. |
 | `3be7af4` | Improved the Enquiry page navigation and accessibility. |
 | `0c232ed` | Improved the Contact page navigation and semantics. |
-| `c335792` | Replaced the Services page with the Products page. |
 | `8380ab6` | Improved CSS typography, responsive layout and styling for the new pages. |
 | `0719394` | Updated the README with rubric improvements and project documentation. |
 | `d790114` | Added responsive image styling and image adjustments for tablet/mobile breakpoints. |
+| `d58055f` | Improved the Products page content and accessibility. |
+| `7d2d3ee` | Improved Shopping Cart accessibility and navigation. |
 
-The short commit descriptions show that the project was developed incrementally rather than being submitted as one large change.
+The project therefore demonstrates multiple incremental, descriptive commits rather than one large submission commit.
 
 ---
 
@@ -474,6 +458,6 @@ Mozilla Developer Network. (n.d.-c). *CSS media queries*. MDN Web Docs. https://
 
 ## 17. Conclusion
 
-The updated ELITE WEAR website addresses the main technical and documentation improvements identified in the feedback. The project now separates HTML and CSS features clearly, uses semantic HTML, responsive CSS, a readable sans-serif font, active navigation states, expanded content, a Products page, Shopping Cart page, Customer Login page and FAQ page. The README also documents the proposed domain, hosting limitations, folder structure, SMART goals, KPIs, seven-month budget framework, installation steps, accessibility considerations, responsive image handling, version control and APA-style references.
+The updated ELITE WEAR website addresses the main technical and documentation improvements identified in the feedback. The project now separates HTML and CSS features clearly, uses semantic HTML, responsive CSS, a readable sans-serif font, active navigation states, expanded product content, a Products page, Shopping Cart page, Customer Login page and FAQ page. The README also documents the proposed domain, hosting limitations, folder structure, SMART goals, KPIs, seven-month budget framework, installation steps, accessibility considerations, responsive image handling, version control and APA-style references.
 
 The separate proposal document should use the same terminology and sitemap so that the proposal, README and website remain consistent.
