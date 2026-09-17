@@ -1,210 +1,125 @@
-# Elite Wear Website
+# ELITE WEAR Website
 
 ## WEDE5020
 
 **Student Name:** CHE-RAE BAATJIES  
 **Student Number:** ST10511240  
-**Business Name:** Elite Wear
+**Business Name:** ELITE WEAR  
+**Proposed domain:** `www.elite.com`
+
+---
+
+## Table of Contents
+
+1. Project overview
+2. Business information
+3. Part 1 – HTML features
+4. Part 2 – CSS features
+5. Website pages and sitemap
+6. SMART goals and KPIs
+7. Hosting and technical limitations
+8. Folder structure
+9. Technologies used
+10. Installation and usage
+11. Accessibility and responsive design
+12. Budget and project timeframe
+13. Version control
+14. References
+15. Contact information
+16. Conclusion
+
+> **Proposal documentation note:** If this README is used together with a separate proposal, update the proposal's table-of-contents page numbers after final editing. Page numbers should match the final PDF/Word document rather than being copied from an earlier draft.
 
 ---
 
 ## 1. Project Overview
 
-Elite Wear is a multi-page clothing business website created for a fashion store. The website provides information about the business, clothing categories, customer services, contact details, and an enquiry form.
+ELITE WEAR is a multi-page clothing business website for a fashion store. The website provides product information, business information, customer enquiries, contact details, a shopping-cart interface, customer-login interface and frequently asked questions.
 
-The project is divided into two main practical parts:
+The practical development is separated into two main parts:
 
-- **Part 1 – HTML:** The structure and content of the website.
-- **Part 2 – CSS:** The styling, layout, appearance, and responsive design of the website.
+- **Part 1 – HTML:** structure, content, semantic elements, forms, navigation and accessibility attributes.
+- **Part 2 – CSS:** colours, typography, spacing, grids, cards, buttons, navigation states and responsive layouts.
 
-JavaScript is also used on the enquiry page for a simple form confirmation message.
+JavaScript is used only where interaction is required, such as the enquiry-form confirmation.
+
+The design keeps the existing beige, cream, white and dark-grey colour palette while replacing the previous handwriting heading font with a readable web-safe sans-serif font.
 
 ---
 
 ## 2. Business Information
 
-**Business Name:** Elite Wear  
+**Business name:** ELITE WEAR  
 **Address:** 76 Durban Street, Port Elizabeth  
-**Telephone:** 0866724895
-
-Elite Wear provides fashionable and affordable clothing for women, men, and children.
+**Telephone:** 0866724895  
+**Proposed domain:** `www.elite.com`
 
 ### Mission
 
-To provide fashionable, affordable, and quality clothing while delivering friendly customer service.
+To provide fashionable, affordable and quality clothing while delivering friendly customer service.
 
 ### Vision
 
 To become a trusted local clothing store and grow its online presence.
 
+### Target audience
+
+- Teenagers
+- Young adults
+- Working adults
+- Families
+- Customers looking for affordable fashion
+- Customers interested in product enquiries and online shopping
+
 ---
 
 # PART 1 – HTML ONLY
 
-## 3. HTML Purpose
+## 3. HTML Features
 
-HTML5 is used to create the structure and content of the Elite Wear website. HTML determines what information appears on each page and how the content is organised.
+HTML5 is used to create the structure and content of the website. The project uses semantic HTML to make the page structure easier to understand and maintain. Semantic structure and accessible markup are standard parts of modern HTML development (Mozilla Developer Network [MDN], n.d.-a).
 
-The HTML files are:
+### Main HTML features
 
-- `index/index.html`
-- `Pages/about.html`
-- `Pages/services.html`
-- `Pages/enquiry.html`
-- `Pages/contact.html`
+- Five original business-content areas: Home, About, Products, Enquiry and Contact.
+- Additional Customer Login, Shopping Cart and FAQ pages to align the website with the updated sitemap.
+- Semantic elements such as `header`, `nav`, `main`, `section`, `article` and `footer`.
+- Descriptive page titles and meta descriptions.
+- Navigation links connecting all major pages.
+- Active navigation-state classes.
+- Product and category content.
+- Enquiry form with labels and appropriate input types.
+- Customer-login form.
+- Shopping-cart interface.
+- FAQ content for additional information depth.
+- `aria-label` and `aria-live` attributes where they improve accessibility.
+- Descriptive alternative text/labels for visual content.
+- Relative links between files in the repository.
+- CSS stylesheet linking through the `<link>` element.
 
----
-
-## 4. HTML Features – Part 1
-
-### 4.1 Multi-page website
-
-The website contains five connected HTML pages:
-
-- Home
-- About
-- Services
-- Enquiry
-- Contact
-
-### 4.2 Semantic HTML
-
-Semantic elements are used to organise the content clearly.
-
-Examples:
-
-- `header` – website header
-- `nav` – navigation menu
-- `main` – main page content
-- `section` – groups related content
-- `article` – individual content blocks
-- `footer` – bottom section of the page
-
-### 4.3 Navigation links
-
-Anchor tags are used to connect the pages.
-
-### 4.4 Headings and paragraphs
-
-Heading elements such as `h1`, `h2`, and `h3` are used for titles and sections. Paragraph elements are used for normal website information.
-
-### 4.5 Product and category content
-
-HTML structures are used to display clothing categories, product information, benefits, and services.
-
-### 4.6 Enquiry form
-
-The Enquiry page contains:
-
-- Full name input
-- Email input
-- Phone number input
-- Product category selection
-- Message textarea
-- Submit button
-- Required fields
-
-### 4.7 HTML classes and attributes
-
-Classes are added to HTML elements so that CSS can style specific parts of the pages.
-
-Examples include:
-
-- `home-page`
-- `about-page`
-- `services-page`
-- `enquiry-page`
-- `contact-page`
-- `site-header`
-- `main-nav`
-- `nav-link`
-- `category-card`
-- `product-card`
-- `benefit-card`
-- `enquiry-form`
-- `contact-card`
-- `site-footer`
-
-### 4.8 CSS connection
-
-Each HTML page is connected to the shared CSS stylesheet using a `link` element.
-
----
-
-## 5. HTML Syntax Examples – Part 1
-
-### Basic HTML document syntax
+### HTML example
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Wear</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-
-</body>
-</html>
+<header class="site-header">
+    <nav class="main-nav" aria-label="Main navigation">
+        <a class="active nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="../Pages/products.html">Products</a>
+        <a class="nav-link" href="../Pages/cart.html">Shopping Cart</a>
+    </nav>
+</header>
 ```
 
-### Heading and paragraph syntax
-
-```html
-<h1>Elite Wear</h1>
-<h2>Our Clothing</h2>
-<p>Discover fashionable and affordable clothing at Elite Wear.</p>
-```
-
-### Navigation syntax
-
-```html
-<nav class="main-nav">
-    <a class="nav-link" href="../index/index.html">Home</a>
-    <a class="nav-link" href="about.html">About</a>
-    <a class="nav-link" href="services.html">Services</a>
-    <a class="nav-link" href="enquiry.html">Enquiry</a>
-    <a class="nav-link" href="contact.html">Contact</a>
-</nav>
-```
-
-### Section syntax
-
-```html
-<section class="home-section">
-    <h2>Welcome to Elite Wear</h2>
-    <p>Fashionable clothing for women, men and children.</p>
-</section>
-```
-
-### Link syntax
-
-```html
-<a href="../Pages/services.html" class="primary-btn">View Services</a>
-```
-
-### Image syntax
-
-```html
-<img src="images/dress.jpg" alt="Fashion dress">
-```
-
-### Form syntax
+### Enquiry-form example
 
 ```html
 <form class="enquiry-form">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required>
+    <label for="email">Email Address</label>
+    <input id="email" name="email" type="email" required>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Message</label>
+    <label for="message">Your Enquiry</label>
     <textarea id="message" name="message" required></textarea>
 
-    <button type="submit" class="submit-btn">Submit Enquiry</button>
+    <button type="submit">Submit Enquiry</button>
 </form>
 ```
 
@@ -212,228 +127,135 @@ Each HTML page is connected to the shared CSS stylesheet using a `link` element.
 
 # PART 2 – CSS ONLY
 
-## 6. CSS Purpose
+## 4. CSS Features
 
-CSS3 is used to control the visual appearance and layout of the Elite Wear website.
+CSS3 controls the presentation and layout of the ELITE WEAR website. Responsive design uses flexible layouts and media queries so that content can adapt to different viewport sizes (MDN, n.d.-b).
 
-The shared stylesheet is:
+### Main CSS features
 
-`css/style.css`
+- Global reset and box sizing.
+- Web-safe sans-serif typography using Arial/Helvetica.
+- Existing beige, cream, white and dark-grey colour palette.
+- Header and navigation styling.
+- Active and hover navigation states.
+- Hero section styling.
+- Reusable button styles.
+- Product grids using CSS Grid.
+- Flexible card layouts.
+- Form and input styling.
+- Shopping-cart styling.
+- FAQ card styling.
+- Contact-card styling.
+- Footer styling.
+- Mobile breakpoints using `@media` rules.
+- Flexible navigation on smaller screens.
+- Single-column layouts on narrow screens.
+- Editable comments for complex or customisable CSS sections.
 
-The stylesheet is organised into editable sections so that colours, fonts, spacing, buttons, cards, forms, navigation, and responsive layouts can be changed easily.
-
----
-
-## 7. CSS Features – Part 2
-
-### 7.1 Global styling
-
-CSS provides common settings for the entire website, including:
-
-- Box sizing
-- Page margins
-- Font family
-- Text colour
-- Background colour
-- Line spacing
-
-### 7.2 Header styling
-
-The header CSS controls the appearance and position of the website header.
-
-### 7.3 Navigation styling
-
-CSS styles the navigation menu, including:
-
-- Navigation spacing
-- Link padding
-- Link appearance
-- Hover effects
-- Mobile navigation
-
-### 7.4 Hero section
-
-The Home page hero section uses CSS for:
-
-- Background styling
-- Text alignment
-- Section height
-- Spacing
-- Heading size
-- Button positioning
-
-### 7.5 Buttons
-
-CSS styles buttons and call-to-action links with:
-
-- Background colours
-- Text colours
-- Padding
-- Rounded corners
-- Hover effects
-- Cursor changes
-
-### 7.6 Cards
-
-CSS is used for category cards, product cards, benefit cards, process cards, and contact cards.
-
-Card styling includes:
-
-- Background colour
-- Padding
-- Border radius
-- Shadows
-- Grid layout
-- Spacing
-
-### 7.7 Product grid
-
-The Services page uses CSS Grid to organise product and clothing category cards.
-
-### 7.8 About page styling
-
-CSS creates styled information boxes for the About page, including spacing, borders, shadows, and readable content layouts.
-
-### 7.9 Enquiry form styling
-
-The form CSS controls:
-
-- Form width
-- Input fields
-- Labels
-- Textarea
-- Select fields
-- Submit button
-- Form spacing
-- Response message area
-
-### 7.10 Contact page styling
-
-CSS styles the contact information cards, guidance boxes, and enquiry button.
-
-### 7.11 Footer styling
-
-The footer CSS controls the background, text colour, alignment, spacing, and footer links.
-
-### 7.12 Responsive design
-
-Media queries are used to make the website suitable for smaller screens.
-
-Responsive features include:
-
-- Flexible navigation
-- Single-column cards on smaller screens
-- Smaller hero headings
-- Flexible content containers
-- Mobile-friendly forms
-- Mobile-friendly spacing
-
-### 7.13 Editable CSS template
-
-The stylesheet contains comments showing where changes can be made. This makes it easier to edit the website without searching through the entire stylesheet.
-
----
-
-## 8. CSS Syntax Examples – Part 2
-
-### Basic CSS syntax
+### CSS example
 
 ```css
-selector {
-    property: value;
-}
-```
-
-### Body styling
-
-```css
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f2ed;
-    color: #333333;
-    line-height: 1.6;
-}
-```
-
-### Class selector
-
-```css
-.primary-btn {
-    background: #333333;
-    color: #ffffff;
-    padding: 12px 24px;
-    border-radius: 6px;
-}
-```
-
-### Hover syntax
-
-```css
-.primary-btn:hover {
-    background: #555555;
-}
-```
-
-### Grid syntax
-
-```css
-.category-cards {
+.product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
 }
 ```
 
-### Card syntax
-
-```css
-.category-card {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 12px #00000012;
-}
-```
-
-### Form input syntax
-
-```css
-input,
-textarea,
-select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-}
-```
-
-### Responsive media query syntax
+### Responsive CSS example
 
 ```css
 @media (max-width: 800px) {
-    .category-cards {
+    .product-grid {
         grid-template-columns: 1fr;
     }
 }
 ```
 
----
-
-## 9. Target Audience
-
-The website is aimed at:
-
-- Teenagers
-- Young adults
-- Adults
-- Families
-- Customers looking for affordable fashion
-- Customers who want to make product enquiries
+Media queries allow CSS rules to be applied according to the user's viewport or device environment and are a common technique for responsive design (MDN, n.d.-b).
 
 ---
 
-## 10. File Structure
+## 5. Website Pages and Sitemap
+
+The sitemap and navigation have been aligned with the feature list.
+
+```text
+ELITE WEAR
+│
+├── Home
+├── About
+├── Products
+│   ├── Dresses
+│   ├── Shirts & Tops
+│   ├── Pants
+│   └── Footwear
+├── Enquiry
+├── Shopping Cart
+├── Customer Login
+├── FAQ
+└── Contact
+```
+
+### Page files
+
+- `index/index.html` – Home
+- `Pages/about.html` – About
+- `Pages/products.html` – Products
+- `Pages/enquiry.html` – Enquiry
+- `Pages/cart.html` – Shopping Cart
+- `Pages/login.html` – Customer Login
+- `Pages/faq.html` – Frequently Asked Questions
+- `Pages/contact.html` – Contact
+
+The previous **Services** page was replaced by **Products** so that the navigation, sitemap and feature list use the same terminology.
+
+---
+
+## 6. SMART Goals and KPIs
+
+The business goals have been rewritten as measurable objectives. Each KPI should be compared with a documented baseline recorded at the start of the seven-month project.
+
+| SMART objective | KPI | Baseline | Target | Timeframe |
+|---|---|---|---|---|
+| Increase website reach | Monthly unique visitors | Month 1 launch count | 5,000 visitors/month | By month 4 |
+| Increase sales generated through the website | Monthly website/enquiry sales | Month 1 sales baseline | +15% | Within 6 months |
+| Increase customer engagement | Qualified product enquiries/month | Month 1 enquiry count | 100/month | By month 6 |
+| Improve usability | Successful navigation/task-completion rate | Initial usability test | 90% | By month 7 |
+| Improve content engagement | FAQ/product-page engagement | Month 1 analytics baseline | +20% | By month 7 |
+
+**Baseline rule:** the final proposal should record the actual month-one values before claiming percentage growth. Targets are objectives, not current performance results.
+
+---
+
+## 7. Hosting and Technical Limitations
+
+### Proposed domain
+
+The proposed domain is `www.elite.com`. Domain availability and registration costs should be checked before launch because a proposed domain is not automatically available.
+
+### Proposed hosting
+
+The website can be hosted using a static web-hosting service such as GitHub Pages or another suitable hosting provider.
+
+The final hosting plan should document:
+
+- Available monthly bandwidth or traffic limits.
+- Storage limits.
+- HTTPS/SSL availability and certificate arrangements.
+- Custom-domain support.
+- Uptime expectations.
+- Any limitations on server-side processing.
+- Whether a database is supported.
+- Whether forms require an external form service or backend.
+
+The current repository is a static front-end project, so database-driven accounts, secure authentication, online payments and real order processing are future enhancements rather than current production functionality.
+
+---
+
+## 8. Folder Structure
+
+The project uses a logical folder hierarchy:
 
 ```text
 My-Website/
@@ -443,62 +265,149 @@ My-Website/
 │
 ├── Pages/
 │   ├── about.html
-│   ├── services.html
+│   ├── products.html
 │   ├── enquiry.html
+│   ├── cart.html
+│   ├── login.html
+│   ├── faq.html
 │   └── contact.html
 │
 ├── css/
 │   └── style.css
 │
+├── assets/
+│   └── (future images and media)
+│
+├── js/
+│   └── (future external JavaScript files)
+│
 └── README.md
 ```
 
+This structure keeps page content, styling, media and future scripts separated.
+
 ---
 
-## 11. Technologies Used
+## 9. Technologies Used
 
 ### HTML5
 
-Used to create the structure, content, forms, links, headings, sections, and page layout.
+Creates the website structure, content, semantic sections, forms, links and accessibility attributes.
 
 ### CSS3
 
-Used to create the visual design, colours, typography, grids, cards, buttons, forms, navigation, spacing, and responsive layouts.
+Controls the visual appearance, typography, spacing, colours, grids, cards, buttons, navigation and responsive layout.
 
 ### JavaScript
 
-Used on the Enquiry page to provide a simple confirmation response after form submission.
+Provides the enquiry-form confirmation interaction. A concise comment explains the purpose of the demonstration function.
 
 ### GitHub
 
-Used to store the project and track development using commits.
+Stores the website project and records development changes through incremental commits.
 
 ---
 
-## 12. Git and GitHub Commits
+## 10. Installation and Usage
 
-The project uses separate commits to show the development of the website.
+1. Clone or download the repository.
+2. Open the project in a code editor such as Visual Studio Code.
+3. Open `index/index.html` in a browser or use a local development server.
+4. Use the navigation menu to test each page.
+5. Test the enquiry form and confirmation message.
+6. Resize the browser to test the responsive CSS breakpoints.
+7. Edit `css/style.css` to change colours, typography, spacing and layout.
 
-Important development commits include:
-
-- Expand Home page with detailed Elite Wear information
-- Expand About page with company story, mission, vision, values and goals
-- Expand Services page with detailed clothing categories and customer services
-- Expand Contact page with detailed contact information and enquiry guidance
-- Improve Enquiry form with phone field validation guidance and confirmation
-- Improve shared stylesheet for expanded Elite Wear pages
-- Add CSS attributes to Home page
-- Add CSS attributes to About page
-- Add CSS attributes to Services page
-- Add CSS attributes to Enquiry page
-- Add CSS attributes to Contact page
-- Create editable CSS template for all website pages
-- Update README with Part 1 HTML and Part 2 CSS features and syntax
+No database or server-side installation is currently required for the static demonstration.
 
 ---
 
-## 13. Conclusion
+## 11. Accessibility and Responsive Design
 
-Elite Wear is a multi-page clothing website that demonstrates the separation of website structure and presentation. **Part 1 uses HTML5** to create the pages, content, navigation, forms, and semantic structure. **Part 2 uses CSS3** to control colours, typography, layouts, cards, buttons, forms, navigation, and responsive design.
+The website includes:
 
-The project is organised so that the HTML and CSS can be edited separately while working together to create a consistent clothing-store website.
+- Semantic HTML elements.
+- Labels connected to form fields.
+- Required form fields.
+- Appropriate input types such as `email` and `tel`.
+- Descriptive labels for visual icons.
+- `aria-live` feedback for the enquiry response.
+- Viewport meta tags.
+- Flexible CSS Grid layouts.
+- Responsive media queries.
+- Readable sans-serif typography.
+- Active navigation indicators.
+
+If real product images are added later, every meaningful image should use a descriptive `alt` attribute. Decorative images should use an empty `alt` attribute where appropriate.
+
+---
+
+## 12. Budget and Seven-Month Project Timeframe
+
+All project costs should be reported using the same **seven-month project timeframe**. This prevents one-off costs, monthly costs and annual costs from being mixed without explanation.
+
+Recommended budget table for the final proposal:
+
+| Expense item | Cost basis | Seven-month cost | Purpose |
+|---|---|---:|---|
+| Domain registration | One-off/annual | Enter actual quotation | Domain name |
+| Hosting | Monthly × 7 months | Enter actual quotation | Website hosting |
+| Design/software | Seven-month project | Enter actual cost | Development and design |
+| Images/assets | Seven-month project | Enter actual cost | Product and branding media |
+| Testing/maintenance | Seven-month project | Enter actual cost | Testing and updates |
+| Contingency | Percentage of project cost | Enter calculated amount | Unexpected project expenses |
+| **Total** | **Seven-month project** | **Calculate total** | **Full project cost** |
+
+The final proposal should replace the placeholders with the actual quotations or approved budget figures. Each expense must explain how it contributes to the total.
+
+---
+
+## 13. Version Control
+
+The project uses incremental and descriptive commits. Recent examples include:
+
+- `Expand home page with detailed Elite Wear information`
+- `Expand About page with company story mission vision values and goals`
+- `Expand services page with detailed clothing categories and customer services`
+- `Improve enquiry form with phone field validation guidance and confirmation`
+- `Add CSS attributes to home page`
+- `Add CSS attributes to about page`
+- `Add CSS attributes to services page`
+- `Create editable CSS template for all website pages`
+- `Add Products page to match updated sitemap`
+- `Add Shopping Cart page to website`
+- `Add Customer Login page to website`
+- `Add FAQ page for sufficient website content`
+- `Improve CSS typography responsive layout and new pages`
+- `Update README with HTML and CSS features and syntax`
+
+This incremental history makes individual changes easier to identify and review.
+
+---
+
+## 14. References
+
+The following references are used in the documentation with APA-style in-text citations. Reference entries use sentence case and identify the host/publisher.
+
+Mozilla Developer Network. (n.d.-a). *HTML: HyperText Markup Language*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/HTML
+
+Mozilla Developer Network. (n.d.-b). *Responsive web design*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design
+
+Mozilla Developer Network. (n.d.-c). *CSS media queries*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries
+
+---
+
+## 15. Contact Information
+
+**Business:** ELITE WEAR  
+**Address:** 76 Durban Street, Port Elizabeth  
+**Telephone:** 0866724895  
+**Proposed website:** www.elite.com
+
+---
+
+## 16. Conclusion
+
+The updated ELITE WEAR website addresses the main technical and documentation improvements identified in the feedback. The project now separates HTML and CSS features clearly, uses semantic HTML, responsive CSS, a readable sans-serif font, active navigation states, expanded content, a Products page, Shopping Cart page, Customer Login page and FAQ page. The README also documents the proposed domain, hosting limitations, folder structure, SMART goals, KPIs, seven-month budget framework, installation steps, accessibility considerations and APA-style references.
+
+The separate proposal document should use the same terminology and sitemap so that the proposal, README and website remain consistent.
