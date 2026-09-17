@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Wear | Customer Login</title>
+    <meta name="description" content="ELITE WEAR customer login interface for the clothing store website project.">
+    <title>ELITE WEAR | Customer Login</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="login-page">
     <header class="site-header">
         <div class="navbar">
             <div class="logo">ELITE WEAR</div>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <a class="nav-link" href="../index/index.html">Home</a>
                 <a class="nav-link" href="about.html">About</a>
                 <a class="nav-link" href="products.html">Products</a>
                 <a class="nav-link" href="enquiry.html">Enquiry</a>
                 <a class="nav-link" href="cart.html">Shopping Cart</a>
-                <a class="active nav-link" href="login.html">Customer Login</a>
+                <a class="active nav-link" href="login.html" aria-current="page">Customer Login</a>
                 <a class="nav-link" href="faq.html">FAQ</a>
                 <a class="nav-link" href="contact.html">Contact</a>
             </nav>
@@ -25,19 +26,29 @@
 
     <main class="login-main">
         <section class="container">
-            <div class="section-title"><h1>Customer Login</h1><p>Sign in to manage your Elite Wear customer account.</p></div>
-            <form class="form login-form">
-                <div class="form-group"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-                <div class="form-group"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+            <div class="section-title">
+                <h1>Customer Login</h1>
+                <p>Sign in to manage your ELITE WEAR customer account.</p>
+            </div>
+
+            <form class="form login-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                </div>
                 <button class="btn submit-btn" type="submit">Login</button>
-                <p class="login-note">Account authentication is planned as a future enhancement. This page currently demonstrates the required customer-login interface.</p>
+                <p class="login-note"><strong>Project demonstration:</strong> Account authentication is planned as a future enhancement. This page currently demonstrates the required customer-login interface and form structure.</p>
             </form>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>ELITE WEAR | 76 Durban Street, Port Elizabeth | 0866724895</p>
-        <p class="footer-links"><a href="../index/index.html">Home</a> | <a href="products.html">Products</a> | <a href="cart.html">Cart</a> | <a href="login.html">Login</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact</a></p>
+        <p><strong>ELITE WEAR</strong> | 76 Durban Street, Port Elizabeth | 0866724895</p>
+        <p class="footer-links"><a href="../index/index.html">Home</a> | <a href="products.html">Products</a> | <a href="enquiry.html">Enquiry</a> | <a href="cart.html">Cart</a> | <a href="login.html">Login</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact</a></p>
         <p>&copy; 2026 ELITE WEAR. All rights reserved.</p>
     </footer>
 </body>
