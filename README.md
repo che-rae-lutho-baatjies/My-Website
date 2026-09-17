@@ -24,9 +24,10 @@
 11. Accessibility and responsive design
 12. Budget and project timeframe
 13. Version control
-14. References
-15. Contact information
-16. Conclusion
+14. Changelog
+15. References
+16. Contact information
+17. Conclusion
 
 > **Proposal documentation note:** If this README is used together with a separate proposal, update the proposal's table-of-contents page numbers after final editing. Page numbers should match the final PDF/Word document rather than being copied from an earlier draft.
 
@@ -43,7 +44,7 @@ The practical development is separated into two main parts:
 
 JavaScript is used only where interaction is required, such as the enquiry-form confirmation.
 
-The design keeps the existing beige, cream, white and dark-grey colour palette while replacing the previous handwriting heading font with a readable web-safe sans-serif font.
+The design keeps the existing beige, cream, white and dark-grey colour palette while using a readable web-safe sans-serif font.
 
 ---
 
@@ -137,7 +138,7 @@ CSS3 controls the presentation and layout of the ELITE WEAR website. Responsive 
 - Web-safe sans-serif typography using Arial/Helvetica.
 - Existing beige, cream, white and dark-grey colour palette.
 - Header and navigation styling.
-- Active and hover navigation states.
+- Active, hover and focus navigation/form states.
 - Hero section styling.
 - Reusable button styles.
 - Product grids using CSS Grid.
@@ -150,9 +151,34 @@ CSS3 controls the presentation and layout of the ELITE WEAR website. Responsive 
 - Mobile breakpoints using `@media` rules.
 - Flexible navigation on smaller screens.
 - Single-column layouts on narrow screens.
+- Responsive image rules using `max-width: 100%` and `height: auto`.
+- Product-image sizing adjustments at tablet and mobile breakpoints.
 - Editable comments for complex or customisable CSS sections.
 
-### CSS example
+### CSS default-style example
+
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+```
+
+### CSS typography example
+
+```css
+h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+```
+
+### CSS layout example
 
 ```css
 .product-grid {
@@ -162,12 +188,43 @@ CSS3 controls the presentation and layout of the ELITE WEAR website. Responsive 
 }
 ```
 
+### CSS decoration and colour example
+
+```css
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #00000012;
+}
+```
+
+### CSS pseudo-class example
+
+```css
+.nav-link:hover,
+.nav-link.active {
+    background: #e6e1da;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #999;
+}
+```
+
 ### Responsive CSS example
 
 ```css
 @media (max-width: 800px) {
     .product-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero h1 {
+        font-size: 34px;
     }
 }
 ```
@@ -334,7 +391,8 @@ The website includes:
 - `aria-live` feedback for the enquiry response.
 - Viewport meta tags.
 - Flexible CSS Grid layouts.
-- Responsive media queries.
+- Responsive media queries for tablet and mobile layouts.
+- Responsive image rules so future product images scale within their containers.
 - Readable sans-serif typography.
 - Active navigation indicators.
 
@@ -364,28 +422,36 @@ The final proposal should replace the placeholders with the actual quotations or
 
 ## 13. Version Control
 
-The project uses incremental and descriptive commits. Recent examples include:
-
-- `Expand home page with detailed Elite Wear information`
-- `Expand About page with company story mission vision values and goals`
-- `Expand services page with detailed clothing categories and customer services`
-- `Improve enquiry form with phone field validation guidance and confirmation`
-- `Add CSS attributes to home page`
-- `Add CSS attributes to about page`
-- `Add CSS attributes to services page`
-- `Create editable CSS template for all website pages`
-- `Add Products page to match updated sitemap`
-- `Add Shopping Cart page to website`
-- `Add Customer Login page to website`
-- `Add FAQ page for sufficient website content`
-- `Improve CSS typography responsive layout and new pages`
-- `Update README with HTML and CSS features and syntax`
-
-This incremental history makes individual changes easier to identify and review.
+The project uses incremental and descriptive commits. The repository contains multiple separate commits for page creation, page updates, CSS improvements, sitemap changes and documentation updates. This makes individual changes easier to identify and review.
 
 ---
 
-## 14. References
+## 14. Changelog
+
+The following changelog records the main development stages of the website:
+
+| Commit | Development change |
+|---|---|
+| `b38f625` | Created an editable external CSS template for the website pages. |
+| `d01a002` | Updated the README with HTML and CSS features and syntax. |
+| `118ff10` | Added the Products page to match the updated sitemap. |
+| `21a419b6` | Added the Shopping Cart page. |
+| `48b9c147` | Added the Customer Login page. |
+| `c4c02c9` | Added the FAQ page for additional website content. |
+| `332a008` | Improved the home page navigation, semantics and branding. |
+| `2900a196` | Improved the About page goals and navigation. |
+| `3be7af4` | Improved the Enquiry page navigation and accessibility. |
+| `0c232ed` | Improved the Contact page navigation and semantics. |
+| `c335792` | Replaced the Services page with the Products page. |
+| `8380ab6` | Improved CSS typography, responsive layout and styling for the new pages. |
+| `0719394` | Updated the README with rubric improvements and project documentation. |
+| `d790114` | Added responsive image styling and image adjustments for tablet/mobile breakpoints. |
+
+The short commit descriptions show that the project was developed incrementally rather than being submitted as one large change.
+
+---
+
+## 15. References
 
 The following references are used in the documentation with APA-style in-text citations. Reference entries use sentence case and identify the host/publisher.
 
@@ -397,7 +463,7 @@ Mozilla Developer Network. (n.d.-c). *CSS media queries*. MDN Web Docs. https://
 
 ---
 
-## 15. Contact Information
+## 16. Contact Information
 
 **Business:** ELITE WEAR  
 **Address:** 76 Durban Street, Port Elizabeth  
@@ -406,8 +472,8 @@ Mozilla Developer Network. (n.d.-c). *CSS media queries*. MDN Web Docs. https://
 
 ---
 
-## 16. Conclusion
+## 17. Conclusion
 
-The updated ELITE WEAR website addresses the main technical and documentation improvements identified in the feedback. The project now separates HTML and CSS features clearly, uses semantic HTML, responsive CSS, a readable sans-serif font, active navigation states, expanded content, a Products page, Shopping Cart page, Customer Login page and FAQ page. The README also documents the proposed domain, hosting limitations, folder structure, SMART goals, KPIs, seven-month budget framework, installation steps, accessibility considerations and APA-style references.
+The updated ELITE WEAR website addresses the main technical and documentation improvements identified in the feedback. The project now separates HTML and CSS features clearly, uses semantic HTML, responsive CSS, a readable sans-serif font, active navigation states, expanded content, a Products page, Shopping Cart page, Customer Login page and FAQ page. The README also documents the proposed domain, hosting limitations, folder structure, SMART goals, KPIs, seven-month budget framework, installation steps, accessibility considerations, responsive image handling, version control and APA-style references.
 
 The separate proposal document should use the same terminology and sitemap so that the proposal, README and website remain consistent.
