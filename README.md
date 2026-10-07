@@ -42,7 +42,7 @@ The practical development is separated into two main parts:
 - **Part 1 – HTML:** structure, content, semantic elements, forms, navigation and accessibility attributes.
 - **Part 2 – CSS:** colours, typography, spacing, grids, cards, buttons, navigation states and responsive layouts.
 
-JavaScript is used where interaction is required, such as the enquiry-form confirmation.
+JavaScript is used where interaction is required, including enquiry-form validation/response and contact-form validation with a compiled `mailto:` email.
 
 The design keeps the existing beige, cream, white and dark-grey colour palette while using a readable web-safe sans-serif font.
 
@@ -89,7 +89,8 @@ HTML5 is used to create the structure and content of the website. The project us
 - Navigation links connecting all major pages.
 - Active navigation-state classes and `aria-current` on the current page where appropriate.
 - Product and category content.
-- Enquiry form with labels and appropriate input types.
+- Enquiry form with labels and appropriate input types for product, price, size, colour and availability enquiries.
+- Contact form with basic contact details, message type and full-message fields for general communication.
 - Customer-login form.
 - Shopping-cart interface.
 - FAQ content for additional information depth.
@@ -251,11 +252,11 @@ ELITE WEAR
 - `index/index.html` – Home
 - `Pages/about.html` – About
 - `Pages/products.html` – Products
-- `Pages/enquiry.html` – Enquiry
+- `Pages/enquiry.html` – Enquiry (product/service information, price and availability)
 - `Pages/cart.html` – Shopping Cart
 - `Pages/login.html` – Customer Login
 - `Pages/faq.html` – Frequently Asked Questions
-- `Pages/contact.html` – Contact
+- `Pages/contact.html` – Contact (general message form and email preparation)
 
 The previous **Services** page was replaced by **Products** so that the navigation, sitemap and feature list use the same terminology.
 
