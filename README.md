@@ -439,6 +439,16 @@ The following changelog records the main development stages of the website. The 
 | `d790114` | Added responsive image styling and image adjustments for tablet/mobile breakpoints. |
 | `d58055f` | Improved the Products page content and accessibility. |
 | `7d2d3ee` | Improved Shopping Cart accessibility and navigation. |
+| `11cb3d3` | Improved enquiry/contact form validation and clarified front-end submission behaviour. |
+| `1124f1b` | Added browser-local cart interactions and login/form validation logic. |
+| `aa86c11` | Added keyboard focus visibility, skip links support and reduced-motion styling. |
+| `ddc359b` | Added product-category buttons that add selections to the shopping cart. |
+| `842ccf2` | Replaced static cart examples with editable quantities, removal and clear-cart controls. |
+| `940947f` | Added validation feedback to the customer login demonstration without storing passwords. |
+| `d68de1c` | Improved root home page keyboard accessibility. |
+| `bdafb3f` | Improved FAQ page keyboard accessibility. |
+| `e8f4516` | Documented Part 3 functionality and the verification checklist. |
+| `6eea906` | Updated the README contents list to include Part 3 sections. |
 
 The project therefore demonstrates multiple incremental, descriptive commits rather than one large submission commit.
 
