@@ -543,3 +543,36 @@ Confirm the final URL in GitHub Pages settings rather than assuming the proposed
 
 - **2026-10-29 — Improve form validation and clarify front-end submission behavior:** strengthened checks for trimmed form values, updated enquiry feedback to explain that it is a demonstration rather than a server submission, and clarified the contact email preparation process. The contact recipient remains a placeholder until the real business email address is supplied.
 - **2026-10-29 — Document Part 3 functionality and SEO:** added notes on feedback changes, form elements, validation, SEO best practices, testing, deployment steps and the limits of static front-end forms.
+
+
+## 24. Part 3 – Functionality Implemented
+
+The following practical features are included in the repository:
+
+- **Enquiry form:** browser validation, required-field checks, trimmed text values and a confirmation response explaining the form's demonstration status.
+- **Contact form:** browser validation for name, email, phone, message type and full message; prepares a prefilled email draft through the visitor's default email application.
+- **Shopping cart:** product-category buttons add categories to a browser-local cart; users can increase/decrease quantities, remove a category and clear the cart. The cart uses `localStorage` and does not collect personal information.
+- **Customer login demonstration:** validates required fields and explains that real authentication is not available. Passwords are not stored or sent by this front-end script.
+- **Accessibility:** skip-to-main-content links, keyboard-visible focus styles, live response regions, semantic elements and a reduced-motion preference.
+- **SEO and maintainability:** descriptive page titles and meta descriptions, clear navigation labels, headings, page-specific content and responsive image defaults.
+
+### Important limits and final setup
+
+This is a static coursework website. It has no backend/database, secure account authentication, order processing, payment gateway, live inventory or server-side form delivery. The cart is saved only in the same browser on the same device. The email recipient in `js/script.js` is still `elitewear@example.com`; replace it with the correct monitored email address before real use.
+
+The root-level `index.html` is the GitHub Pages entry page and links to the pages in `Pages/`. The additional `index/index.html` file is retained for the existing coursework structure; keep both home pages aligned when editing.
+
+## 25. Part 3 Verification Checklist
+
+- [ ] Open the root `index.html` and follow all navigation links.
+- [ ] Confirm every page loads `css/style.css`.
+- [ ] Test the Products add-to-cart buttons, then change quantities and remove/clear items on the Shopping Cart page.
+- [ ] Reload the page to confirm the cart persists in the same browser.
+- [ ] Submit Enquiry and Contact with empty and valid inputs to test validation.
+- [ ] Confirm Contact opens an email draft and replace the placeholder recipient first.
+- [ ] Submit the Customer Login form and confirm the demonstration notice appears.
+- [ ] Test keyboard-only navigation and a narrow mobile viewport.
+- [ ] Check browser developer tools for broken links, missing assets and JavaScript errors.
+- [ ] Enable GitHub Pages in repository Settings > Pages and confirm the published URL loads successfully.
+
+The checklist is provided for the student to perform and record. These browser and deployment checks have not been marked complete by this repository edit.
