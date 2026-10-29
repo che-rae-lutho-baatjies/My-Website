@@ -526,16 +526,18 @@ Before submission, manually test the following in a browser:
 
 ## 22. Deployment and Publishing
 
-The repository is stored on GitHub. To publish the static website using GitHub Pages:
+The repository is stored on GitHub and already contains a root-level `index.html`, which is the entry point for a standard GitHub Pages deployment. The project also contains `index/index.html`; keep the two home pages consistent when making future edits.
+
+To publish the static website using GitHub Pages:
 
 1. Open the repository on GitHub and select **Settings**.
 2. Open **Pages** in the repository settings.
 3. Under the build/deployment source, choose **Deploy from a branch** if that option is available.
-4. Select the `main` branch and the folder containing the site's entry page. The current home page is in `index/index.html`; GitHub Pages normally expects an `index.html` at the published root, so configure the publishing folder or move/copy the entry page to the root as needed.
-5. Save the settings and wait for the deployment status to complete.
+4. Select the `main` branch and the `/ (root)` folder, then save.
+5. Wait for the deployment status to complete.
 6. Open the published URL shown in the Pages settings and test all navigation links and forms.
 
-If the publishing configuration cannot publish `index/index.html` as the root page, place a root-level `index.html` in the repository that links to or redirects to the existing home page, then commit and push that change. Confirm the final URL in GitHub Pages settings rather than assuming the proposed `www.elite.com` domain is already active.
+Confirm the final URL in GitHub Pages settings rather than assuming the proposed `www.elite.com` domain is already active. Deployment is not confirmed until the Pages settings show a published URL and that URL loads successfully.
 
 ## 23. Part 3 Changelog Entry
 
