@@ -28,6 +28,14 @@
 15. References
 16. Contact information
 17. Conclusion
+18. Part 3 – Feedback from Part 2
+19. Form elements and validation
+20. Search engine optimisation (SEO)
+21. Testing checklist
+22. Deployment and publishing
+23. Part 3 changelog
+24. Functionality implemented
+25. Part 3 verification checklist
 
 > **Proposal documentation note:** If this README is used together with a separate proposal, update the proposal's table-of-contents page numbers after final editing. Page numbers should match the final PDF/Word document rather than being copied from an earlier draft.
 
