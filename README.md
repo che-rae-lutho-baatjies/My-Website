@@ -462,3 +462,82 @@ Mozilla Developer Network. (n.d.-c). *CSS media queries*. MDN Web Docs. https://
 The updated ELITE WEAR website addresses the main technical and documentation improvements identified in the feedback. The project now separates HTML and CSS features clearly, uses semantic HTML, responsive CSS, a readable sans-serif font, active navigation states, expanded product content, a Products page, Shopping Cart page, Customer Login page and FAQ page. The README also documents the proposed domain, hosting limitations, folder structure, SMART goals, KPIs, seven-month budget framework, installation steps, accessibility considerations, responsive image handling, version control and APA-style references.
 
 The separate proposal document should use the same terminology and sitemap so that the proposal, README and website remain consistent.
+
+
+---
+
+# PART 3 – ENHANCING FUNCTIONALITY AND SEO
+
+## 18. Feedback from Part 2
+
+Part 3 builds on the existing HTML and CSS work. The website keeps the ELITE WEAR name, Products terminology, shared navigation, external stylesheet, responsive layout and the beige, cream, white and dark-grey colour palette.
+
+The JavaScript was reviewed and updated to:
+- Validate required enquiry and contact fields using HTML5 form validity checks.
+- Check trimmed field values before processing.
+- Display a clear response in the page using the existing `aria-live` response areas.
+- Prepare a general contact email with the user's name, email address, phone number, message type and full message.
+- URL-encode the email subject and body before opening the user's email application.
+- Explain that the enquiry form is a front-end demonstration and does not save or send data to a server.
+
+### Important contact-form setup
+
+In `js/script.js`, the recipient is currently `elitewear@example.com`, a coursework placeholder. Before real use, replace it with the organisation's actual monitored email address. The contact form opens the visitor's email application; the visitor must review and send the email. No message is sent automatically, and there is no database or backend in this static website.
+
+## 19. Form Elements and Validation
+
+### Enquiry form — `Pages/enquiry.html`
+
+The enquiry form collects the customer's name, email address, product category, enquiry type and a full message. Required fields, the email input type and minimum text lengths support validation. After successful browser-side validation, JavaScript displays a response related to the selected category and enquiry type.
+
+### Contact form — `Pages/contact.html`
+
+The contact form collects the customer's name, email address, telephone number, message type and full message. Required fields, email and telephone input types, a telephone pattern and minimum message length help validate input. JavaScript compiles the validated values into a prefilled email.
+
+HTML5 and JavaScript validation improve the user experience but do not replace server-side validation. Server-side processing would be required before the site could securely store enquiries, manage accounts or process orders.
+
+## 20. Search Engine Optimisation (SEO)
+
+The page markup uses descriptive page titles, meta descriptions, a language declaration, a responsive viewport setting, meaningful headings and links with clear text. The main pages use descriptive content relevant to ELITE WEAR and its clothing categories.
+
+SEO checks before publishing:
+- Keep each page title and meta description specific to that page.
+- Use a clear heading hierarchy, with one main `h1` heading per page where practical.
+- Use descriptive link text rather than vague phrases such as “click here”.
+- Add descriptive `alt` text to meaningful product photographs; use empty `alt` text for purely decorative images.
+- Use readable, descriptive file names and keep internal links working.
+- Check all pages on mobile and desktop, and correct broken links.
+- Do not add a canonical URL or sitemap URL until the final public website address is confirmed.
+- Do not claim that search ranking or traffic has improved without measurement.
+
+## 21. Testing Checklist
+
+Before submission, manually test the following in a browser:
+
+- [ ] Open Home, About, Products, Enquiry, Shopping Cart, Customer Login, FAQ and Contact from the navigation.
+- [ ] Confirm that every page loads the external `css/style.css` stylesheet.
+- [ ] Submit each form with empty fields and confirm that validation prevents processing.
+- [ ] Submit the enquiry form with valid details and confirm that the response appears.
+- [ ] Submit the contact form with valid details and confirm that the email application opens with the subject and message filled in.
+- [ ] Check that the contact recipient placeholder has been replaced with a real address before any real-world use.
+- [ ] Test keyboard focus, visible hover/focus states, and mobile navigation/layout.
+- [ ] Check the browser console and correct JavaScript errors.
+- [ ] Check internal links and page titles before publishing.
+
+## 22. Deployment and Publishing
+
+The repository is stored on GitHub. To publish the static website using GitHub Pages:
+
+1. Open the repository on GitHub and select **Settings**.
+2. Open **Pages** in the repository settings.
+3. Under the build/deployment source, choose **Deploy from a branch** if that option is available.
+4. Select the `main` branch and the folder containing the site's entry page. The current home page is in `index/index.html`; GitHub Pages normally expects an `index.html` at the published root, so configure the publishing folder or move/copy the entry page to the root as needed.
+5. Save the settings and wait for the deployment status to complete.
+6. Open the published URL shown in the Pages settings and test all navigation links and forms.
+
+If the publishing configuration cannot publish `index/index.html` as the root page, place a root-level `index.html` in the repository that links to or redirects to the existing home page, then commit and push that change. Confirm the final URL in GitHub Pages settings rather than assuming the proposed `www.elite.com` domain is already active.
+
+## 23. Part 3 Changelog Entry
+
+- **2026-10-29 — Improve form validation and clarify front-end submission behavior:** strengthened checks for trimmed form values, updated enquiry feedback to explain that it is a demonstration rather than a server submission, and clarified the contact email preparation process. The contact recipient remains a placeholder until the real business email address is supplied.
+- **2026-10-29 — Document Part 3 functionality and SEO:** added notes on feedback changes, form elements, validation, SEO best practices, testing, deployment steps and the limits of static front-end forms.
