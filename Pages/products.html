@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="products-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
         <div class="navbar">
             <div class="logo">ELITE WEAR</div>
             <nav class="main-nav" aria-label="Main navigation">
-                <a class="nav-link" href="../index/index.html">Home</a>
+                <a class="nav-link" href="../index.html">Home</a>
                 <a class="nav-link" href="about.html">About</a>
                 <a class="active nav-link" href="products.html" aria-current="page">Products</a>
                 <a class="nav-link" href="enquiry.html">Enquiry</a>
@@ -24,7 +25,7 @@
         </div>
     </header>
 
-    <main class="services-main">
+    <main id="main-content" class="services-main">
         <section class="container services-section">
             <div class="section-title">
                 <h1>Our Products</h1>
@@ -38,7 +39,8 @@
                         <h2>Dresses</h2>
                         <p>Our dress collection includes casual, work and occasion styles suitable for different seasons and events. Customers can enquire about available sizes, colours and styles before purchasing.</p>
                         <p class="price">Category: Dresses</p>
-                        <a class="btn" href="enquiry.html">Enquire About Dresses</a>
+                        <button class="btn add-to-cart-btn" type="button" data-product="Dresses">Add to Shopping Cart</button>
+                        <a class="btn light" href="enquiry.html">Enquire About Dresses</a>
                     </div>
                 </article>
 
@@ -48,7 +50,8 @@
                         <h2>Shirts &amp; Tops</h2>
                         <p>Choose from comfortable everyday shirts and fashionable tops that can be styled for work, weekends and social occasions. Enquiries can be made about fit and availability.</p>
                         <p class="price">Category: Shirts &amp; Tops</p>
-                        <a class="btn" href="enquiry.html">Enquire About Tops</a>
+                        <button class="btn add-to-cart-btn" type="button" data-product="Shirts & Tops">Add to Shopping Cart</button>
+                        <a class="btn light" href="enquiry.html">Enquire About Tops</a>
                     </div>
                 </article>
 
@@ -58,7 +61,8 @@
                         <h2>Pants</h2>
                         <p>Our pants range includes versatile styles that can be combined with different tops and footwear. Customers can contact ELITE WEAR to ask about sizes, colours and current availability.</p>
                         <p class="price">Category: Pants</p>
-                        <a class="btn" href="enquiry.html">Enquire About Pants</a>
+                        <button class="btn add-to-cart-btn" type="button" data-product="Pants">Add to Shopping Cart</button>
+                        <a class="btn light" href="enquiry.html">Enquire About Pants</a>
                     </div>
                 </article>
 
@@ -68,7 +72,8 @@
                         <h2>Footwear</h2>
                         <p>Complete your outfit with practical and stylish footwear for casual, work and occasion outfits. Customers can enquire about sizes, styles and availability.</p>
                         <p class="price">Category: Footwear</p>
-                        <a class="btn" href="enquiry.html">Enquire About Footwear</a>
+                        <button class="btn add-to-cart-btn" type="button" data-product="Footwear">Add to Shopping Cart</button>
+                        <a class="btn light" href="enquiry.html">Enquire About Footwear</a>
                     </div>
                 </article>
             </div>
@@ -88,8 +93,9 @@
 
     <footer class="site-footer">
         <p><strong>ELITE WEAR</strong> | 76 Durban Street, Port Elizabeth | 0866724895</p>
-        <p class="footer-links"><a href="../index/index.html">Home</a> | <a href="about.html">About</a> | <a href="products.html">Products</a> | <a href="enquiry.html">Enquiry</a> | <a href="cart.html">Cart</a> | <a href="login.html">Login</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact</a></p>
+        <p class="footer-links"><a href="../index.html">Home</a> | <a href="about.html">About</a> | <a href="products.html">Products</a> | <a href="enquiry.html">Enquiry</a> | <a href="cart.html">Cart</a> | <a href="login.html">Login</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact</a></p>
         <p>&copy; 2026 ELITE WEAR. All rights reserved.</p>
     </footer>
+    <script src="../js/script.js"></script>
 </body>
 </html>
