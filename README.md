@@ -36,6 +36,7 @@
 23. Part 3 changelog
 24. Functionality implemented
 25. Part 3 verification checklist
+26. Part 4 – JavaScript enhancements
 
 > **Proposal documentation note:** If this README is used together with a separate proposal, update the proposal's table-of-contents page numbers after final editing. Page numbers should match the final PDF/Word document rather than being copied from an earlier draft.
 
@@ -594,3 +595,65 @@ The root-level `index.html` is the GitHub Pages entry page and links to the page
 - [ ] Enable GitHub Pages in repository Settings > Pages and confirm the published URL loads successfully.
 
 The checklist is provided for the student to perform and record. These browser and deployment checks have not been marked complete by this repository edit.
+
+
+---
+
+## 26. Part 4 – JavaScript Enhancements
+
+The following improvements were implemented after reviewing the Part 2 feedback and the Part 3 requirements. The changes use **vanilla JavaScript**, the browser's native HTML dialog element and the existing Google Maps embed. No additional framework or API key is required for these coursework demonstrations.
+
+### Interactive elements and DOM manipulation
+
+- **FAQ accordion:** JavaScript converts each FAQ question into an accessible button and places its answer inside a collapsible panel. The button updates `aria-expanded`, uses `aria-controls` to identify its answer, and allows visitors to open or close answers without leaving the page.
+- **Product image lightbox:** each product photograph can be selected to open a larger image in a native HTML dialog. The lightbox displays the product name, provides a visible close button, closes when the visitor selects the backdrop, and supports the browser's Escape-key dialog behaviour.
+- **Dynamic product catalogue:** JavaScript reads the product cards already provided in the catalogue, filters them as the visitor types, sorts the matching categories alphabetically in either direction, and updates the visible result count. The DOM is updated without reloading the page.
+- **Accessible interaction feedback:** search results are announced through an `aria-live` result message. The FAQ buttons and gallery controls can be reached and used with a keyboard.
+
+### Interactive map
+
+The Contact page already contains a Google Maps embedded map for the store address, **76 Durban Street, Port Elizabeth, South Africa**, together with a separate Google Maps directions link. Visitors can interact with the embedded map using the map provider's controls and open directions in Google Maps. This implementation uses Google's embed/search URL and does not require a Google Maps API key. The displayed map pin should still be checked against the real shop location before publication.
+
+### CSS animations and transitions
+
+- Product cards and the product search panel use a short entrance animation.
+- FAQ answer panels use a subtle reveal animation when opened.
+- Product images zoom slightly on hover, and buttons/cards use transitions for hover feedback.
+- The existing `prefers-reduced-motion` accessibility rule is extended so visitors who request reduced motion are not forced to see the new animations.
+
+### Files changed
+
+- `Pages/products.html`: added product search and sort controls, accessible image-gallery triggers and the lightbox dialog.
+- `js/script.js`: added live product filtering/sorting, dynamic DOM updates, lightbox behaviour and FAQ accordion behaviour while retaining existing form and cart features.
+- `css/style.css`: added responsive search controls, lightbox styling, accordion styling, entrance/reveal animations and reduced-motion handling.
+- `Pages/faq.html`: its existing FAQ cards are enhanced into interactive accordion controls by the shared JavaScript file; the original answers remain available in the page markup.
+- `Pages/contact.html`: retains the interactive Google Maps embed and directions link added earlier.
+
+### Limitations
+
+These are client-side coursework enhancements. Product information is currently maintained in the website files; it is not loaded from a live product database or external API. Search and sorting work with the catalogue entries included on the page. The map is an embedded Google map, not a custom Leaflet, Mapbox or OpenLayers map application. The lightbox and accordion do not require a server. Online payments, real customer accounts, live inventory and database-backed product management still require a secure backend.
+
+### Part 4 changelog
+
+- **2026-10-30 — Add live product search, filtering and sorting:** added a labelled search field and sort selector to the Products page. JavaScript filters the existing product catalogue as text is entered, sorts matching product categories from A to Z or Z to A, restores the original featured order when selected, and updates an accessible result count. The catalogue is rearranged through DOM manipulation without refreshing the page.
+- **2026-10-30 — Add an accessible product image lightbox:** made all six product category images keyboard-accessible gallery triggers and added a native HTML dialog to show the selected image at a larger size. The lightbox includes meaningful alternative text, a product caption, a close button, backdrop closing and Escape-key support.
+- **2026-10-30 — Convert FAQ cards into interactive accordions:** enhanced the existing FAQ content with JavaScript-created toggle buttons and collapsible answer panels. Added `aria-expanded`, `aria-controls` and hidden-state updates so the controls communicate their state to assistive technology.
+- **2026-10-30 — Improve CSS animations and transitions:** introduced subtle entrance and answer-reveal animations, smoother hover transitions and responsive styling for the new product tools and lightbox. Extended reduced-motion handling to cover the new animated elements.
+- **2026-10-30 — Document the existing interactive Google Maps feature:** recorded that the Contact page embeds Google Maps for 76 Durban Street, Port Elizabeth, and provides a separate directions link. Clarified that the embedded map is interactive but should be checked against the shop's exact physical location before launch.
+- **2026-10-30 — Update project documentation and testing guidance:** documented the JavaScript enhancements, changed files, implementation approach, accessibility behaviour and limitations so that the lecturer can trace the purpose and scope of each improvement.
+
+### Part 4 testing checklist
+
+- [ ] On Products, search for a word such as `dress` and confirm unrelated cards are hidden.
+- [ ] Clear the search and confirm all product categories return.
+- [ ] Sort the catalogue A to Z and Z to A and confirm the displayed order changes.
+- [ ] Select each product image and confirm the lightbox shows the correct larger image and caption.
+- [ ] Close the lightbox with its close button, backdrop and Escape key.
+- [ ] On FAQ, open and close each question using a mouse and keyboard.
+- [ ] Confirm the FAQ button's expanded state changes when the answer opens and closes.
+- [ ] Test the new controls at desktop and mobile widths.
+- [ ] Enable reduced-motion preferences and confirm the new animations are minimised.
+- [ ] On Contact, interact with the map and follow the directions link; verify that the pin matches the actual store location.
+- [ ] Check the browser console for JavaScript errors.
+
+The checklist is for manual browser verification and should only be ticked after each test has been completed.
