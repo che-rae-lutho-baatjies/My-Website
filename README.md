@@ -755,57 +755,71 @@ This checklist records tasks for manual verification. Do not mark an item comple
 
 ---
 
-## 28. Form Functionality and Validation
+## 28. Form Functionality, Validation and AJAX Submission
 
-The Enquiry, Contact and Customer Login pages use JavaScript to check form information before showing a result. HTML attributes identify required fields and provide suitable input types and length limits.
+The Product Enquiry and Contact forms validate visitor information and submit it asynchronously using the FormSubmit email form service. GitHub Pages continues to host the static website; FormSubmit provides the external form-processing service.
 
-### Form functionality
+### Product Enquiry form
 
-- **Product Enquiry form:** visitors must enter their name and email address, select a product category and enquiry type, and provide an enquiry of at least 10 characters.
-- **Contact form:** visitors must enter their name, email address and phone number, choose a message type, and write a message of at least 10 characters.
-- **Customer Login form:** visitors must enter a valid email address and a password containing at least six characters. This is a front-end demonstration only; it does not authenticate a customer.
-- **Required fields:** form controls use the HTML `required` attribute, with email, telephone and password input types selected for the relevant information.
-- **Input limits:** name, email, phone, password and message fields have maximum lengths to reduce accidental oversized input.
+- Collects the visitor's full name and email address.
+- Requires a product category and an enquiry type: price, availability, size/colour or general product information.
+- Requires a message of at least 10 characters.
+- Submits the complete enquiry to the configured school-work recipient through the FormSubmit AJAX endpoint.
+- Gives a relevant confirmation. Price and stock are not calculated or checked live; the store must confirm exact prices and current availability.
 
-### JavaScript validation
+### Contact form
 
-- Checks that required text fields are not empty after trimming spaces.
-- Checks that names contain at least two characters.
-- Checks email addresses for a basic valid email format.
-- Checks phone numbers for 7 to 15 digits and permits common formatting characters such as spaces, brackets, plus signs and hyphens.
-- Checks that the visitor selects an option from each required drop-down list.
-- Checks that enquiry and contact messages contain at least 10 characters.
-- Checks that the demonstration password contains at least six characters.
-- Shows a clear error message beside an invalid field and marks the field with `aria-invalid`.
-- Associates error messages with their fields for assistive technology.
-- Rechecks fields when visitors leave them and as they correct invalid information.
-- Moves keyboard focus to the first invalid field after an unsuccessful submission.
-- Displays a confirmation message after all validation rules pass.
+- Collects full name, email address, phone number, message type and the complete message.
+- Requires a valid email address and a phone number containing 7 to 15 digits. Spaces, brackets, plus signs and hyphens are accepted as formatting characters.
+- Requires a message type and a message of at least 10 characters.
+- Sends all named form fields to the configured recipient using an asynchronous JSON request. The visitor remains on the Contact page.
+
+### HTML and JavaScript validation
+
+- HTML controls use appropriate input types, required attributes, minimum and maximum lengths, and descriptive labels.
+- JavaScript checks trimmed text, email format, phone number format and required drop-down selections.
+- Field-level errors are displayed beside the relevant control, announced accessibly and linked using `aria-describedby`.
+- Invalid submission focuses the first field that needs attention.
+- Submit buttons are disabled while the asynchronous request is in progress to reduce accidental duplicate submissions.
+- A live response area communicates submission success or failure without navigating away from the page.
+- A hidden honeypot field is included as an additional spam-control measure.
+
+### AJAX submission and recipient setup
+
+Both forms use an HTML `action` attribute and `method="POST"` and JavaScript's `fetch()` API to send JSON asynchronously to FormSubmit. The configured recipient is `st10511240@rcconnect.edu.za`. FormSubmit requires the recipient to complete its activation email the first time a form is used. Until activation is completed, email delivery may not begin. The recipient should check the inbox and spam/junk folder for the activation message and follow the service's instructions.
+
+The form service is a third-party processor. Form submissions contain the personal information entered by visitors, so the website owner should review the provider's privacy and data-handling terms and only collect information needed to respond. Do not submit passwords, payment-card details or other sensitive information through these forms.
 
 ### Important limitations
 
-The website is hosted as a static front-end project. Passing validation does **not** mean that a message has been delivered or stored. No verified business email address or form-processing backend has been supplied, so the Contact and Enquiry forms display a clear demonstration confirmation rather than pretending to send a message. The login form does not create accounts, verify passwords or store credentials. A secure backend or trusted form service is required for real message delivery and customer authentication. Do not enter real passwords or sensitive personal information into this demonstration.
+- This website does not have its own server-side form handler or customer database. FormSubmit is an external service used for Enquiry and Contact message processing.
+- A successful AJAX response means the external service accepted the submission; it does not prove that the recipient has read the email.
+- First-time recipient activation and a real end-to-end test are still required before claiming that email delivery has been verified.
+- The enquiry form cannot query real stock or calculate live prices because no product database or inventory API is connected.
+- The Customer Login form remains a front-end validation demonstration only. It does not authenticate users, create accounts or send/store passwords.
+- Real authentication, orders and payments require a secure backend and appropriate payment provider.
 
 ### Files updated
 
-- `Pages/enquiry.html`: required fields, email input type and sensible length limits.
-- `Pages/contact.html`: required fields, email and telephone input types, and message length limits.
-- `Pages/login.html`: required email and password fields with a minimum password length.
-- `js/script.js`: live field validation, accessible error associations, first-invalid-field focus and honest success feedback.
-- `css/style.css`: visible styling for invalid fields and validation messages.
+- `Pages/enquiry.html`: added the FormSubmit AJAX action, POST method, email subject, table template and honeypot field while retaining the existing enquiry fields.
+- `Pages/contact.html`: added the FormSubmit AJAX action, POST method, email subject, table template and honeypot field; improved telephone input hints and pattern.
+- `js/script.js`: retained accessible validation, added shared asynchronous submission handling, loading and error feedback, and tailored enquiry confirmations. Existing cart, login, product search, gallery and FAQ features remain.
+- `README.md`: documented the recipient, external service, AJAX approach, activation step, privacy considerations and limitations.
 
 ### Form testing checklist
 
-- [ ] Submit each form with every field empty and confirm that required-field errors appear.
-- [ ] Enter an invalid email address and confirm that it is rejected.
-- [ ] Enter a name shorter than two characters and confirm that it is rejected.
-- [ ] Enter a phone number with fewer than seven digits or more than 15 digits and confirm that it is rejected.
-- [ ] Leave each drop-down list at its default option and confirm that a selection is required.
-- [ ] Enter a message shorter than 10 characters and confirm that it is rejected.
-- [ ] Enter valid information and confirm that the appropriate validation confirmation appears.
-- [ ] Correct an invalid field and confirm that its error clears while typing.
-- [ ] Use only the keyboard and confirm that focus moves to the first invalid field.
-- [ ] Confirm that the forms do not claim to send, store or authenticate information.
-- [ ] Test the forms on desktop and mobile screen sizes and check the browser console for errors.
+- [ ] Submit the Enquiry form empty and confirm required-field errors appear.
+- [ ] Enter an invalid email address and confirm it is rejected.
+- [ ] Leave the product category or enquiry type unselected and confirm it is rejected.
+- [ ] Enter an enquiry shorter than 10 characters and confirm it is rejected.
+- [ ] Enter valid enquiry details and confirm the button shows a sending state and the page does not reload.
+- [ ] On Contact, test empty fields, invalid email, invalid phone number and missing message type.
+- [ ] Confirm a contact message shorter than 10 characters is rejected.
+- [ ] Submit valid contact details and confirm the asynchronous response appears without navigating away.
+- [ ] Check the recipient inbox for the FormSubmit activation email and complete activation if requested.
+- [ ] After activation, submit one test enquiry and one test contact message and confirm both emails arrive at the intended recipient.
+- [ ] Check the browser console and Network panel for failed requests or JavaScript errors.
+- [ ] Confirm the Customer Login page still displays its validation-only message and does not transmit passwords.
+- [ ] Test the forms on desktop and mobile screen sizes.
 
-Only tick the checklist after manually completing each test in a browser.
+Only tick the checklist after completing each test. The code has been updated, but the live form service, recipient activation and actual email delivery still need to be tested in a browser.
