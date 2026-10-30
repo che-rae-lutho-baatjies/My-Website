@@ -3,110 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Contact ELITE WEAR with a general message, question, feedback or support request.">
+    <title>ELITE WEAR | Contact Us</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-    <header>
+<body class="contact-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
         <div class="navbar">
-
-            <div class="logo">
-                Elite Wear
-            </div>
-            
-            <nav>
-
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="enquiry.html">Enquiry</a>
-                <a class="active" href="contact.html">Contact</a>
-
+            <div class="logo">ELITE WEAR</div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a class="nav-link" href="../index.html">Home</a>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="products.html">Products</a>
+                <a class="nav-link" href="enquiry.html">Enquiry</a>
+                <a class="nav-link" href="cart.html">Shopping Cart</a>
+                <a class="nav-link" href="login.html">Customer Login</a>
+                <a class="nav-link" href="faq.html">FAQ</a>
+                <a class="active nav-link" href="contact.html" aria-current="page">Contact</a>
             </nav>
         </div>
     </header>
-
-    <section class="container">
-        <div class="section-title">
-
-            <h2>
-                Contact Us
-            </h2>
-            
-            <p>
-                We would love to hear from you.
-            </p>
-
-        </div>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <div class="icon">
-                    📍
+    <main id="main-content">
+        <section class="container">
+            <div class="section-title">
+                <h1>Contact ELITE WEAR</h1>
+                <p>Send us a general message, question, feedback or support request.</p>
+            </div>
+            <form id="contactForm" class="form contact-box" novalidate>
+                <div class="form-group">
+                    <label for="contactName">Full Name</label>
+                    <input id="contactName" name="name" type="text" required minlength="2" autocomplete="name">
                 </div>
-
-                <h3>
-                    Visit Us
-                </h3>
-
-                <p>
-                    76 Durban Street
-                    <br>
-                    Port Elizabeth
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">
-                   ☎
-
-
-            </div>
-
-            <h3>
-                Phone
-
-            </h3>
-
-            <p>
-                0866724895
-
-            </p>
-
-        </div>
-
-        <div class="card">
-            <div class="icon">
-                💬
-            </div>
-
-            <h3>
-                Enquiries
-            </h3>
-
-            <p>
-                Send us a message using our enquiry form.
-            </p>
-
-            <a class="btn" href="enquiry.html">
-
-                Enquire Now
-            </a>
-        </div>
-
-    </section>
-
-    <footer>
-
-        <p>
-
-            Elite Wear| 76 Durban Street, Port Elizabeth| 0866724895
-        </p>
-
+                <div class="form-group">
+                    <label for="contactEmail">Email Address</label>
+                    <input id="contactEmail" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">Phone Number</label>
+                    <input id="contactPhone" name="phone" type="tel" required autocomplete="tel" pattern="[0-9 +()-]{7,}">
+                </div>
+                <div class="form-group">
+                    <label for="messageType">Message Type</label>
+                    <select id="messageType" name="messageType" required>
+                        <option value="">-- Select a message type --</option>
+                        <option value="General question">General question</option>
+                        <option value="Feedback">Feedback</option>
+                        <option value="Customer support">Customer support</option>
+                        <option value="Complaint">Complaint</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Full Message</label>
+                    <textarea id="contactMessage" name="message" required minlength="10" placeholder="Type your full message here..."></textarea>
+                </div>
+                <button class="btn submit-btn" type="submit">Send Message</button>
+                <div id="contactResponse" class="form-response" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>ELITE WEAR | 76 Durban Street, Port Elizabeth | 0866724895</p>
+        <p class="footer-links"><a href="../index.html">Home</a> | <a href="about.html">About</a> | <a href="products.html">Products</a> | <a href="enquiry.html">Enquiry</a> | <a href="cart.html">Cart</a> | <a href="login.html">Login</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact</a></p>
+        <p>&copy; 2026 ELITE WEAR. All rights reserved.</p>
     </footer>
-    
+    <script src="../js/script.js"></script>
 </body>
 </html>
