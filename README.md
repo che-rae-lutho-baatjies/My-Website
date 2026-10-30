@@ -37,6 +37,7 @@
 24. Functionality implemented
 25. Part 3 verification checklist
 26. Part 4 – JavaScript enhancements
+27. Part 5 – Search Engine Optimisation (SEO)
 
 > **Proposal documentation note:** If this README is used together with a separate proposal, update the proposal's table-of-contents page numbers after final editing. Page numbers should match the final PDF/Word document rather than being copied from an earlier draft.
 
@@ -657,3 +658,57 @@ These are client-side coursework enhancements. Product information is currently 
 - [ ] Check the browser console for JavaScript errors.
 
 The checklist is for manual browser verification and should only be ticked after each test has been completed.
+
+
+---
+
+## 27. Part 5 – Search Engine Optimisation (SEO)
+
+SEO improvements have been added across the ELITE WEAR website to help search engines understand the purpose and content of each page and to improve how links may appear when shared on social media.
+
+### On-page SEO
+
+- **Unique page titles:** each page now has a descriptive title that identifies its subject and, where relevant, the ELITE WEAR brand and Port Elizabeth location.
+- **Page-specific meta descriptions:** each page has a concise description written for its actual content. The descriptions use relevant natural-language phrases such as affordable fashion, clothing, dresses, footwear, product enquiries and Port Elizabeth.
+- **Search indexing instructions:** the pages include robots directives set to `index, follow`, allowing compliant search engines to index the pages and follow their links. This is a request to crawlers, not a guarantee of indexing or ranking.
+- **Language and mobile settings:** the existing HTML language declaration (`lang="en"`) and responsive viewport meta tag are retained.
+- **Semantic page structure:** existing descriptive page headings, main content regions, navigation and image alternative text are retained to help users and assistive technologies understand the pages.
+
+### Social media sharing metadata
+
+Open Graph metadata and Twitter card metadata have been added to the website pages. These tags provide a page title, description, site name and fashion image for supported social-sharing previews. The image is a representative fashion photograph and is not a photograph of the physical store or a specific product for sale.
+
+### Local business structured data
+
+The homepage now includes JSON-LD structured data using Schema.org's `ClothingStore` type. It identifies ELITE WEAR, describes its clothing business, and supplies the business telephone number and the address already displayed on the website: **76 Durban Street, Port Elizabeth, South Africa**. Structured data helps search engines interpret business information, but does not guarantee a rich result or a higher ranking. The business details must be accurate and consistent wherever the store is listed.
+
+### Technical SEO considerations
+
+- All pages continue to use the existing responsive external stylesheet and working internal navigation.
+- Descriptive alternative text is retained on the fashion images so that the image subject is communicated to visitors who cannot see the image.
+- A canonical URL and XML sitemap have not been added because the final public website URL / GitHub Pages domain has not yet been confirmed. These should use the real deployed URL, not the proposed domain `www.elite.com` unless that domain is registered and configured for this website.
+- A `robots.txt` file can guide crawlers after the live publishing address is confirmed. Search engine crawling and indexing depend on the published site being publicly accessible and on search-engine policies.
+- SEO does not guarantee first-page placement. Search rankings depend on many factors, including content quality, relevance, site performance, accessibility, reputation and external links.
+
+### Part 5 changelog
+
+- **2026-10-30 — Improve page titles for search relevance:** revised the title tags on the homepage and all seven supporting pages so each title describes the page's purpose and includes the ELITE WEAR brand. The homepage and Contact page titles also include the Port Elizabeth location where relevant.
+- **2026-10-30 — Add unique meta descriptions to every page:** updated the description metadata to summarise each page accurately and include relevant fashion and customer-service search terms. This avoids using one generic description across the website.
+- **2026-10-30 — Add search crawler directives and browser metadata:** added robots and Googlebot index/follow directives, a theme colour and a referrer policy while retaining the existing language and responsive viewport settings.
+- **2026-10-30 — Add Open Graph and Twitter sharing metadata:** added page-specific social titles and descriptions, together with a representative fashion image, so supported platforms can generate more informative link previews.
+- **2026-10-30 — Add ClothingStore structured data:** added homepage JSON-LD to identify ELITE WEAR as a clothing store and describe the business name, telephone number and published street address. No unverified opening hours, coordinates, reviews or website URL were invented.
+- **2026-10-30 — Document technical SEO limitations:** recorded that the canonical URL and XML sitemap must wait until the final public deployment URL is confirmed. The proposed domain is not treated as a verified live website address.
+
+### Part 5 SEO verification checklist
+
+- [ ] Open each page and confirm that its browser tab title is unique and descriptive.
+- [ ] Inspect each page source and confirm that its meta description matches the page content.
+- [ ] Confirm that Open Graph and Twitter title, description and image metadata are present.
+- [ ] Validate the homepage JSON-LD with Google's Rich Results Test or Schema.org Validator after deployment.
+- [ ] Check that the address and telephone number in structured data match the actual business details.
+- [ ] Test internal navigation links and image alternative text.
+- [ ] Confirm the final public URL before creating canonical links, an XML sitemap and a sitemap reference in robots.txt.
+- [ ] Submit the deployed site to Google Search Console after the domain is verified.
+- [ ] Recheck indexing and mobile usability after the website is published.
+
+This checklist records tasks for manual verification. Do not mark an item complete until it has been tested.
