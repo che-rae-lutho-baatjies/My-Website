@@ -686,8 +686,9 @@ The homepage now includes JSON-LD structured data using Schema.org's `ClothingSt
 
 - All pages continue to use the existing responsive external stylesheet and working internal navigation.
 - Descriptive alternative text is retained on the fashion images so that the image subject is communicated to visitors who cannot see the image.
-- A canonical URL and XML sitemap have not been added because the final public website URL / GitHub Pages domain has not yet been confirmed. These should use the real deployed URL, not the proposed domain `www.elite.com` unless that domain is registered and configured for this website.
-- A `robots.txt` file can guide crawlers after the live publishing address is confirmed. Search engine crawling and indexing depend on the published site being publicly accessible and on search-engine policies.
+- Canonical links and an XML sitemap are configured for the standard GitHub Pages project-site URL `https://che-rae-lutho-baatjies.github.io/My-Website/`. Confirm that GitHub Pages is enabled and that this is the actual published URL. If a custom domain is configured, update canonical links, Open Graph URLs, `sitemap.xml` and the sitemap directive in `robots.txt` to use that verified domain.
+- The root `robots.txt` file allows compliant crawlers and points to the XML sitemap. The Shopping Cart, Customer Login and duplicate coursework homepage use page-level `noindex, follow` directives and are intentionally omitted from the sitemap. A robots file is a crawler instruction, not access control.
+- Search engine crawling and indexing depend on the published site being publicly accessible and on search-engine policies.
 - SEO does not guarantee first-page placement. Search rankings depend on many factors, including content quality, relevance, site performance, accessibility, reputation and external links.
 
 ### Part 5 changelog
@@ -712,3 +713,41 @@ The homepage now includes JSON-LD structured data using Schema.org's `ClothingSt
 - [ ] Recheck indexing and mobile usability after the website is published.
 
 This checklist records tasks for manual verification. Do not mark an item complete until it has been tested.
+
+
+### Part 5 implementation update — technical SEO, speed and off-page guidance
+
+- **2026-10-30 — Add canonical URLs to indexable pages:** added canonical link elements and matching Open Graph page URLs for the main homepage and the About, Products, Enquiry, Contact and FAQ pages. The URLs use the standard GitHub Pages project-site pattern and must be changed if a different public domain is used.
+- **2026-10-30 — Create an XML sitemap:** added `sitemap.xml` containing the six main pages that should be discoverable by search engines. The Shopping Cart, Customer Login and duplicate homepage file are not included because they are utility or duplicate pages.
+- **2026-10-30 — Configure robots.txt:** updated the crawler instructions to allow public page crawling and to advertise the sitemap location. Cart, login and duplicate-page exclusion is handled with page-level noindex directives.
+- **2026-10-30 — Reduce duplicate homepage indexing:** marked `index/index.html` as noindex and clarified its title so search engines are directed toward the root-level homepage as the primary page.
+- **2026-10-30 — Improve image loading hints:** added asynchronous image decoding hints to page images and retained lazy loading on below-the-fold product and category images. Responsive image sizing remains controlled by the existing CSS.
+- **2026-10-30 — Add external resource preconnection:** added a preconnect hint for the Unsplash image host to reduce connection setup time for fashion photographs.
+- **2026-10-30 — Document keyword and local SEO strategy:** target phrases include affordable clothing in Port Elizabeth, Port Elizabeth fashion store, dresses, shirts and tops, pants, shoes, footwear, handbags, fashion accessories and clothing enquiries. These phrases are used naturally in relevant page titles, descriptions and page copy rather than repeated unnaturally.
+- **2026-10-30 — Document off-page SEO actions and security boundaries:** recorded that genuine backlinks and social promotion require real external profiles, partners or directory listings and cannot be truthfully created by editing this repository. The static GitHub Pages site uses local JavaScript and CSS and does not provide server-side authentication or payment processing. Security response headers must be configured by the hosting platform or a reverse proxy; HTML meta tags cannot replace those headers.
+
+### Off-page SEO actions to complete after publication
+
+1. Create or confirm the official ELITE WEAR business profiles on social platforms and link each profile to the verified website URL. Share original product-category photographs and useful fashion updates regularly.
+2. Ask legitimate local fashion partners, suppliers, community organisations and relevant business directories to link to the website. Do not buy bulk backlinks or create misleading listings.
+3. Create or claim the appropriate Google Business Profile only if ELITE WEAR is an eligible real business with a genuine customer-facing location. Verify the address, phone number and business details before publishing.
+4. Once the website is live, add and verify its domain in Google Search Console, submit `sitemap.xml`, and monitor indexing and search queries.
+
+### Page speed and security notes
+
+- Product/category images use responsive CSS, lazy loading where appropriate and asynchronous decoding. The Unsplash image URLs request resized, compressed image variants; replace remote images with locally optimised WebP/AVIF files if the site later hosts its own assets.
+- Keep CSS and JavaScript in the existing external files. Avoid adding unnecessary libraries, tracking scripts or large media files.
+- GitHub Pages provides static hosting and HTTPS when correctly enabled. It does not allow this repository to set arbitrary HTTP response headers such as Content-Security-Policy, Strict-Transport-Security or X-Content-Type-Options. Configure supported security headers at a hosting/CDN layer if one is added.
+- Do not collect real passwords or payment details on this static demonstration site. Real authentication, order processing and payment handling require a secure backend and a trusted payment provider. Keep dependencies updated and never commit API keys, passwords or private customer data.
+
+### Part 5 additional verification checklist
+
+- [ ] Confirm the GitHub Pages published URL matches the canonical URLs in the HTML pages.
+- [ ] Open `/robots.txt` and confirm it references `/sitemap.xml` on the correct domain.
+- [ ] Open `/sitemap.xml` and validate the XML structure and every page URL.
+- [ ] Confirm the sitemap contains only the public indexable pages.
+- [ ] Confirm Shopping Cart, Customer Login and `index/index.html` have noindex directives.
+- [ ] Test the site over HTTPS and check for mixed-content warnings.
+- [ ] Run a page-speed audit and review image transfer sizes, unused CSS/JavaScript and mobile performance.
+- [ ] Configure suitable security response headers through the hosting/CDN provider if available.
+- [ ] Complete real social profile, backlink and business-directory work only after verifying the business details and live URL.
