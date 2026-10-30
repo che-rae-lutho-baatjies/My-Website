@@ -38,6 +38,7 @@
 25. Part 3 verification checklist
 26. Part 4 – JavaScript enhancements
 27. Part 5 – Search Engine Optimisation (SEO)
+28. Form functionality, validation and AJAX submission
 
 > **Proposal documentation note:** If this README is used together with a separate proposal, update the proposal's table-of-contents page numbers after final editing. Page numbers should match the final PDF/Word document rather than being copied from an earlier draft.
 
@@ -52,7 +53,7 @@ The practical development is separated into two main parts:
 - **Part 1 – HTML:** structure, content, semantic elements, forms, navigation and accessibility attributes.
 - **Part 2 – CSS:** colours, typography, spacing, grids, cards, buttons, navigation states and responsive layouts.
 
-JavaScript is used where interaction is required, including enquiry-form validation/response and contact-form validation with a compiled `mailto:` email.
+JavaScript is used for interactive features, including form validation and asynchronous AJAX submission of Enquiry and Contact forms through the external FormSubmit service.
 
 The design keeps the existing beige, cream, white and dark-grey colour palette while using a readable web-safe sans-serif font.
 
@@ -419,7 +420,7 @@ The final proposal should replace the placeholders with the actual quotations or
 
 ## 13. Version Control
 
-The project uses incremental and descriptive commits. The repository contains multiple separate commits for page creation, page updates, CSS improvements, sitemap changes and documentation updates. This makes individual changes easier to identify and review.
+The project uses incremental and descriptive commits. Each update is committed directly to the remote `main` branch so that page changes, CSS improvements, JavaScript features, SEO work and documentation updates can be reviewed in the repository history. The commit history is the record of pushed changes.
 
 ---
 
@@ -458,13 +459,25 @@ The project therefore demonstrates multiple incremental, descriptive commits rat
 
 ## 15. References
 
-The following references are used in the documentation with APA-style in-text citations. Reference entries use sentence case and identify the host/publisher.
+The following references support the HTML, CSS, responsive design, JavaScript, form submission, accessibility, SEO and publishing guidance in this README. Reference entries use APA-style formatting and identify the publisher or host.
 
-Mozilla Developer Network. (n.d.-a). *HTML: HyperText Markup Language*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/HTML
+Mozilla. (n.d.-a). *HTML: HyperText Markup Language*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/HTML
 
-Mozilla Developer Network. (n.d.-b). *Responsive web design*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design
+Mozilla. (n.d.-b). *Responsive web design*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design
 
-Mozilla Developer Network. (n.d.-c). *CSS media queries*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries
+Mozilla. (n.d.-c). *CSS media queries*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries
+
+Mozilla. (n.d.-d). *Using the Fetch API*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+Mozilla. (n.d.-e). *Constraint validation*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation
+
+FormSubmit. (n.d.). *FormSubmit: Easy form endpoints*. https://formsubmit.co/
+
+GitHub. (n.d.-a). *Configuring a publishing source for your GitHub Pages site*. GitHub Docs. https://docs.github.com/en/pages/configuring-a-publishing-source-for-your-github-pages-site
+
+GitHub. (n.d.-b). *About GitHub Pages*. GitHub Docs. https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages
+
+Schema.org. (n.d.). *ClothingStore*. https://schema.org/ClothingStore
 
 ---
 
@@ -493,16 +506,16 @@ The separate proposal document should use the same terminology and sitemap so th
 Part 3 builds on the existing HTML and CSS work. The website keeps the ELITE WEAR name, Products terminology, shared navigation, external stylesheet, responsive layout and the beige, cream, white and dark-grey colour palette.
 
 The JavaScript was reviewed and updated to:
-- Validate required enquiry and contact fields using HTML5 form validity checks.
-- Check trimmed field values before processing.
-- Display a clear response in the page using the existing `aria-live` response areas.
-- Prepare a general contact email with the user's name, email address, phone number, message type and full message.
-- URL-encode the email subject and body before opening the user's email application.
-- Explain that the enquiry form is a front-end demonstration and does not save or send data to a server.
+- Validate required Enquiry and Contact fields using HTML5 form validity checks and custom JavaScript checks.
+- Check trimmed field values, email format and telephone number format before submission.
+- Display field-level errors and accessible success or failure messages.
+- Submit both forms asynchronously with the browser `fetch()` API to the FormSubmit AJAX endpoint.
+- Keep visitors on the current page while a submission is processed and show a sending state.
+- Disable the submit button during the request to reduce accidental duplicate submissions.
 
-### Important contact-form setup
+### Important form-processing setup
 
-In `js/script.js`, the recipient is currently `elitewear@example.com`, a coursework placeholder. Before real use, replace it with the organisation's actual monitored email address. The contact form opens the visitor's email application; the visitor must review and send the email. No message is sent automatically, and there is no database or backend in this static website.
+The Enquiry and Contact forms use the FormSubmit service to forward submitted messages to the configured recipient, `st10511240@rcconnect.edu.za`. The recipient must complete FormSubmit's first-time activation process before email delivery can be relied on. A successful AJAX response means the service accepted the submission; it does not prove that the recipient has read the email. The website still has no custom server or database, and the product enquiry form cannot check live stock or calculate live prices.
 
 ## 19. Form Elements and Validation
 
@@ -512,7 +525,7 @@ The enquiry form collects the customer's name, email address, product category, 
 
 ### Contact form — `Pages/contact.html`
 
-The contact form collects the customer's name, email address, telephone number, message type and full message. Required fields, email and telephone input types, a telephone pattern and minimum message length help validate input. JavaScript compiles the validated values into a prefilled email.
+The contact form collects the customer's name, email address, telephone number, message type and full message. Required fields, email and telephone input types, a telephone pattern and minimum message length help validate input. JavaScript submits the validated values asynchronously to the configured FormSubmit recipient.
 
 HTML5 and JavaScript validation improve the user experience but do not replace server-side validation. Server-side processing would be required before the site could securely store enquiries, manage accounts or process orders.
 
@@ -538,15 +551,15 @@ Before submission, manually test the following in a browser:
 - [ ] Confirm that every page loads the external `css/style.css` stylesheet.
 - [ ] Submit each form with empty fields and confirm that validation prevents processing.
 - [ ] Submit the enquiry form with valid details and confirm that the response appears.
-- [ ] Submit the contact form with valid details and confirm that the email application opens with the subject and message filled in.
-- [ ] Check that the contact recipient placeholder has been replaced with a real address before any real-world use.
+- [ ] Submit the contact form with valid details and confirm that the AJAX response appears without a page reload.
+- [ ] Complete FormSubmit's first-time recipient activation and verify delivery with a real test message.
 - [ ] Test keyboard focus, visible hover/focus states, and mobile navigation/layout.
 - [ ] Check the browser console and correct JavaScript errors.
 - [ ] Check internal links and page titles before publishing.
 
 ## 22. Deployment and Publishing
 
-The repository is stored on GitHub and already contains a root-level `index.html`, which is the entry point for a standard GitHub Pages deployment. The project also contains `index/index.html`; keep the two home pages consistent when making future edits.
+The website files are stored in the remote GitHub repository. The root-level `index.html` is the entry point for a standard GitHub Pages deployment. Updating files through GitHub commits writes the changes to the remote repository; GitHub Pages must still be enabled in the repository settings to publish the site. The project also contains `index/index.html`; keep the two home pages consistent when making future edits.
 
 To publish the static website using GitHub Pages:
 
@@ -561,8 +574,11 @@ Confirm the final URL in GitHub Pages settings rather than assuming the proposed
 
 ## 23. Part 3 Changelog Entry
 
-- **2026-10-29 — Improve form validation and clarify front-end submission behavior:** strengthened checks for trimmed form values, updated enquiry feedback to explain that it is a demonstration rather than a server submission, and clarified the contact email preparation process. The contact recipient remains a placeholder until the real business email address is supplied.
-- **2026-10-29 — Document Part 3 functionality and SEO:** added notes on feedback changes, form elements, validation, SEO best practices, testing, deployment steps and the limits of static front-end forms.
+- **2026-10-29 — Improve form validation and clarify submission behaviour:** strengthened checks for trimmed form values, required selections, email addresses, telephone numbers and minimum message lengths; added accessible field-level feedback.
+- **2026-10-29 — Document Part 3 functionality and SEO:** added notes on feedback changes, form elements, validation, SEO best practices, testing, deployment steps and the limits of a static front-end website.
+- **2026-10-30 — Connect Enquiry and Contact forms to asynchronous email submission:** configured both forms to use the FormSubmit AJAX endpoint with POST requests, a table email template, subject lines and a honeypot field.
+- **2026-10-30 — Improve AJAX form handling:** added shared JavaScript submission handling, a sending state, disabled submit buttons during requests, accessible success/failure feedback and form reset after an accepted response.
+- **2026-10-30 — Update documentation for the final form implementation:** replaced outdated mailto/demo descriptions with the current FormSubmit AJAX workflow, documented recipient activation, privacy considerations and the difference between service acceptance and confirmed email delivery.
 
 
 ## 24. Part 3 – Functionality Implemented
@@ -570,7 +586,7 @@ Confirm the final URL in GitHub Pages settings rather than assuming the proposed
 The following practical features are included in the repository:
 
 - **Enquiry form:** browser validation, required-field checks, trimmed text values and a confirmation response explaining the form's demonstration status.
-- **Contact form:** browser validation for name, email, phone, message type and full message; prepares a prefilled email draft through the visitor's default email application.
+- **Contact form:** browser validation for name, email, phone, message type and full message; submits the message asynchronously to the configured FormSubmit recipient.
 - **Shopping cart:** product-category buttons add categories to a browser-local cart; users can increase/decrease quantities, remove a category and clear the cart. The cart uses `localStorage` and does not collect personal information.
 - **Customer login demonstration:** validates required fields and explains that real authentication is not available. Passwords are not stored or sent by this front-end script.
 - **Accessibility:** skip-to-main-content links, keyboard-visible focus styles, live response regions, semantic elements and a reduced-motion preference.
@@ -578,7 +594,7 @@ The following practical features are included in the repository:
 
 ### Important limits and final setup
 
-This is a static coursework website. It has no backend/database, secure account authentication, order processing, payment gateway, live inventory or server-side form delivery. The cart is saved only in the same browser on the same device. The email recipient in `js/script.js` is still `elitewear@example.com`; replace it with the correct monitored email address before real use.
+This is a static coursework website. It has no backend/database, secure account authentication, order processing, payment gateway, live inventory or server-side form delivery. The cart is saved only in the same browser on the same device. The Enquiry and Contact forms are configured to send through FormSubmit to `st10511240@rcconnect.edu.za`. The recipient must complete first-time activation, and end-to-end delivery still needs a browser test.
 
 The root-level `index.html` is the GitHub Pages entry page and links to the pages in `Pages/`. The additional `index/index.html` file is retained for the existing coursework structure; keep both home pages aligned when editing.
 
