@@ -221,3 +221,70 @@ select[aria-invalid="true"] {
         min-height: 300px;
     }
 }
+
+
+/* ===================== PART 4: JAVASCRIPT ENHANCEMENTS ===================== */
+.product-tools {
+    display: grid;
+    grid-template-columns: minmax(220px, 2fr) minmax(180px, 1fr);
+    gap: 16px;
+    align-items: end;
+    margin: 0 0 24px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #00000012;
+}
+.product-count { grid-column: 1 / -1; font-weight: 600; margin: 0; }
+.product-card[hidden] { display: none !important; }
+.gallery-trigger { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.gallery-trigger img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-trigger:focus-visible { outline: 4px solid #7a5b3d; outline-offset: -4px; }
+.lightbox-dialog {
+    width: min(900px, calc(100% - 32px));
+    max-width: none;
+    max-height: 90vh;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: #fff;
+    color: #333;
+    box-shadow: 0 18px 60px #00000055;
+}
+.lightbox-dialog::backdrop { background: rgba(0, 0, 0, .82); }
+.lightbox-content { position: relative; padding: 18px; text-align: center; }
+.lightbox-content img { display: block; max-width: 100%; max-height: 75vh; width: auto; height: auto; margin: auto; object-fit: contain; }
+.lightbox-content p { padding: 12px 36px 2px; font-weight: 700; }
+.lightbox-close {
+    position: absolute; top: 8px; right: 10px; z-index: 1;
+    width: 42px; height: 42px; border: 0; border-radius: 50%;
+    background: #333; color: #fff; font-size: 28px; cursor: pointer;
+}
+.faq-toggle {
+    display: flex; width: 100%; align-items: center; justify-content: space-between;
+    gap: 16px; border: 0; padding: 0; background: transparent; color: inherit;
+    text-align: left; font: inherit; font-size: 20px; font-weight: 700; cursor: pointer;
+}
+.faq-toggle::after { content: "+"; font-size: 26px; line-height: 1; }
+.faq-toggle[aria-expanded="true"]::after { content: "−"; }
+.faq-answer { padding-top: 12px; animation: answer-reveal .22s ease-out; }
+.faq-card.is-open { border: 1px solid #d9d3ca; }
+@keyframes answer-reveal {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.product-card, .faq-card, .product-tools { animation: content-appear .35s ease both; }
+@keyframes content-appear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.btn, .nav-link, .card, .product-card { transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease; }
+@media (max-width: 600px) {
+    .product-tools { grid-template-columns: 1fr; }
+    .product-count { grid-column: auto; }
+    .lightbox-content { padding: 48px 10px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .product-card, .faq-card, .product-tools, .faq-answer { animation: none !important; }
+}
