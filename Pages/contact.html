@@ -33,19 +33,19 @@
             <form id="contactForm" class="form contact-box" novalidate>
                 <div class="form-group">
                     <label for="contactName">Full Name</label>
-                    <input id="contactName" name="name" type="text" required minlength="2" autocomplete="name">
+                    <input id="contactName" name="name" type="text" autocomplete="name">
                 </div>
                 <div class="form-group">
                     <label for="contactEmail">Email Address</label>
-                    <input id="contactEmail" name="email" type="email" required autocomplete="email">
+                    <input id="contactEmail" name="email" type="text" inputmode="email" autocomplete="email">
                 </div>
                 <div class="form-group">
                     <label for="contactPhone">Phone Number</label>
-                    <input id="contactPhone" name="phone" type="tel" required autocomplete="tel" pattern="[0-9 +()-]{7,}">
+                    <input id="contactPhone" name="phone" type="tel" autocomplete="tel">
                 </div>
                 <div class="form-group">
                     <label for="messageType">Message Type</label>
-                    <select id="messageType" name="messageType" required>
+                    <select id="messageType" name="messageType">
                         <option value="">-- Select a message type --</option>
                         <option value="General question">General question</option>
                         <option value="Feedback">Feedback</option>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="contactMessage">Full Message</label>
-                    <textarea id="contactMessage" name="message" required minlength="10" placeholder="Type your full message here..."></textarea>
+                    <textarea id="contactMessage" name="message" placeholder="Type your full message here..."></textarea>
                 </div>
                 <button class="btn submit-btn" type="submit">Send Message</button>
                 <div id="contactResponse" class="form-response" aria-live="polite"></div>
