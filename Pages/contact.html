@@ -64,7 +64,10 @@
                     </iframe>
                 </div>
             </section>
-            <form id="contactForm" class="form contact-box" novalidate>
+            <form id="contactForm" class="form contact-box" action="https://formsubmit.co/ajax/st10511240@rcconnect.edu.za" method="POST" novalidate>
+                <input type="hidden" name="_subject" value="ELITE WEAR Contact Message">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
                 <div class="form-group">
                     <label for="contactName">Full Name</label>
                     <input id="contactName" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
@@ -75,7 +78,7 @@
                 </div>
                 <div class="form-group">
                     <label for="contactPhone">Phone Number</label>
-                    <input id="contactPhone" name="phone" type="tel" autocomplete="tel" required minlength="7" maxlength="20">
+                    <input id="contactPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required minlength="7" maxlength="20" pattern="[0-9+() -]{7,20}" title="Enter a phone number using 7 to 15 digits. Spaces, brackets, plus signs and hyphens are allowed.">
                 </div>
                 <div class="form-group">
                     <label for="messageType">Message Type</label>
