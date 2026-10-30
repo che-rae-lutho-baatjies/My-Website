@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-# Add a Sitemap directive after the final public website URL is confirmed.
+# Cart, login and duplicate homepage are excluded by page-level noindex directives.
+Sitemap: https://che-rae-lutho-baatjies.github.io/My-Website/sitemap.xml
