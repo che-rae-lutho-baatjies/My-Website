@@ -288,3 +288,22 @@ select[aria-invalid="true"] {
 @media (prefers-reduced-motion: reduce) {
     .product-card, .faq-card, .product-tools, .faq-answer { animation: none !important; }
 }
+
+
+/* Form validation feedback */
+.field-error {
+    display: block;
+    margin-top: 6px;
+    color: #a32626;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+    border-color: #a32626;
+    outline-color: #a32626;
+}
+.form-response {
+    line-height: 1.5;
+}
