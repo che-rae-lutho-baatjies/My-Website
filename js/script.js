@@ -212,3 +212,89 @@ if (loginForm) {
         loginForm.querySelectorAll("input").forEach(clearFieldError);
     });
 }
+
+
+// Product catalogue: search and sort existing catalogue cards dynamically.
+const productGrid = document.getElementById("productGrid");
+if (productGrid) {
+    const searchInput = document.getElementById("productSearch");
+    const sortSelect = document.getElementById("productSort");
+    const productCount = document.getElementById("productCount");
+    const catalogueCards = Array.from(productGrid.querySelectorAll(".product-card"));
+
+    function renderProducts() {
+        const query = (searchInput.value || "").trim().toLowerCase();
+        const sortMode = sortSelect.value;
+        const matchingCards = catalogueCards.filter(function (card) {
+            return card.textContent.toLowerCase().includes(query);
+        });
+        matchingCards.sort(function (first, second) {
+            const firstName = first.querySelector("h2").textContent.trim().toLowerCase();
+            const secondName = second.querySelector("h2").textContent.trim().toLowerCase();
+            if (sortMode === "az") return firstName.localeCompare(secondName);
+            if (sortMode === "za") return secondName.localeCompare(firstName);
+            return catalogueCards.indexOf(first) - catalogueCards.indexOf(second);
+        });
+        catalogueCards.forEach(function (card) { card.hidden = true; });
+        matchingCards.forEach(function (card) {
+            card.hidden = false;
+            productGrid.appendChild(card);
+        });
+        productCount.textContent = matchingCards.length === 0
+            ? "No products match your search."
+            : "Showing " + matchingCards.length + " of " + catalogueCards.length + " product categories.";
+    }
+    searchInput.addEventListener("input", renderProducts);
+    sortSelect.addEventListener("change", renderProducts);
+    renderProducts();
+}
+
+// Accessible image gallery lightbox. The native dialog supports Escape to close.
+const lightbox = document.getElementById("productLightbox");
+if (lightbox) {
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const closeLightbox = document.getElementById("lightboxClose");
+    document.querySelectorAll(".gallery-trigger").forEach(function (trigger) {
+        trigger.addEventListener("click", function () {
+            const image = trigger.querySelector("img");
+            const product = trigger.closest(".product-card");
+            const heading = product ? product.querySelector("h2") : null;
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightboxCaption.textContent = heading ? heading.textContent : image.alt;
+            if (typeof lightbox.showModal === "function") lightbox.showModal();
+        });
+    });
+    closeLightbox.addEventListener("click", function () { lightbox.close(); });
+    lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) lightbox.close();
+    });
+}
+
+// FAQ accordion: create accessible toggle buttons and expandable answer panels.
+document.querySelectorAll(".faq-card").forEach(function (card, index) {
+    const heading = card.querySelector("h2");
+    const answer = card.querySelector("p");
+    if (!heading || !answer) return;
+    const button = document.createElement("button");
+    const panel = document.createElement("div");
+    const panelId = "faq-answer-" + (index + 1);
+    button.type = "button";
+    button.className = "faq-toggle";
+    button.textContent = heading.textContent;
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", panelId);
+    panel.id = panelId;
+    panel.className = "faq-answer";
+    panel.hidden = true;
+    panel.appendChild(answer);
+    heading.replaceWith(button);
+    card.appendChild(panel);
+    button.addEventListener("click", function () {
+        const willOpen = button.getAttribute("aria-expanded") !== "true";
+        button.setAttribute("aria-expanded", String(willOpen));
+        panel.hidden = !willOpen;
+        card.classList.toggle("is-open", willOpen);
+    });
+});
