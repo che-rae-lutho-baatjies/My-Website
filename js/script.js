@@ -1,3 +1,5 @@
+// ELITE WEAR site-wide scripts for form handling, shopping cart and catalogue interactions.
+// Functions are activated only when their matching page elements are present.
 // ELITE WEAR - JavaScript interactions, validation and AJAX form submissions.
 // FormSubmit handles Enquiry and Contact email delivery; login, payments and live inventory remain demonstrations.
 "use strict";
