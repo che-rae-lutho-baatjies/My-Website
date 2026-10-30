@@ -117,8 +117,7 @@ if (enquiryForm) {
         }
         response.textContent = "Thank you, " + name.value.trim() + ". Your " + questionType.value.toLowerCase() +
             " enquiry about " + category.value + " passed JavaScript validation. This coursework demonstration does not send or store your enquiry.";
-        enquiryForm.reset();
-        enquiryForm.querySelectorAll("input, select, textarea").forEach(clearFieldError);
+        // Keep the visitor's enquiry visible because this static demo does not transmit it.
     });
 }
 
@@ -151,8 +150,7 @@ if (contactForm) {
         }
         response.textContent = "Thank you, " + name.value.trim() +
             ". Your message passed validation. This static coursework website does not send or store messages because no verified business email or form-processing service is connected.";
-        contactForm.reset();
-        contactForm.querySelectorAll("input, select, textarea").forEach(clearFieldError);
+        // Keep the visitor's message visible because this static demo does not transmit it.
     });
 }
 
