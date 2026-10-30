@@ -1,6 +1,5 @@
-// ELITE WEAR - Part 3 JavaScript interactions.
-// Static front-end demonstration: no server, real account authentication, payments,
-// live inventory or remote form storage is connected.
+// ELITE WEAR - JavaScript interactions, validation and AJAX form submissions.
+// FormSubmit handles Enquiry and Contact email delivery; login, payments and live inventory remain demonstrations.
 "use strict";
 
 // JavaScript-only form validation helpers.
@@ -91,10 +90,38 @@ document.querySelectorAll("#enquiryForm, #contactForm, #loginForm").forEach(func
     });
 });
 
-// Product enquiry form.
+// Send validated form data to the configured FormSubmit AJAX endpoint.
+async function submitFormByEmail(form, response, submitButton, successMessage) {
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+    response.textContent = "Sending your message. Please wait."; 
+    try {
+        const payload = Object.fromEntries(new FormData(form).entries());
+        const result = await fetch(form.action, {
+            method: form.method.toUpperCase(),
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(payload)
+        });
+        const data = await result.json();
+        if (!result.ok || data.success !== true) {
+            throw new Error(data.message || "The form service could not accept your message.");
+        }
+        response.textContent = successMessage + " If this is the first submission, the recipient must confirm the FormSubmit activation email before email delivery begins.";
+        form.reset();
+        form.querySelectorAll("input, select, textarea").forEach(clearFieldError);
+    } catch (error) {
+        response.textContent = "Your message could not be submitted. Please check your connection and try again. " + (error.message || "");
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    }
+}
+
+// Product enquiry form: validate fields, then submit asynchronously.
 const enquiryForm = document.getElementById("enquiryForm");
 if (enquiryForm) {
-    enquiryForm.addEventListener("submit", function (event) {
+    enquiryForm.addEventListener("submit", async function (event) {
         event.preventDefault();
         const name = document.getElementById("enquiryName");
         const email = document.getElementById("enquiryEmail");
@@ -102,8 +129,7 @@ if (enquiryForm) {
         const questionType = document.getElementById("productQuestion");
         const message = document.getElementById("enquiryMessage");
         const valid = [
-            validateText(name, "Full name", 2),
-            validateEmail(email),
+            validateText(name, "Full name", 2), validateEmail(email),
             validateSelect(category, "a product category"),
             validateSelect(questionType, "an enquiry type"),
             validateText(message, "Your enquiry", 10)
@@ -115,32 +141,27 @@ if (enquiryForm) {
             if (firstInvalid) firstInvalid.focus();
             return;
         }
-        response.textContent = "Thank you, " + name.value.trim() + ". Your " + questionType.value.toLowerCase() +
-            " enquiry about " + category.value + " passed JavaScript validation. This coursework demonstration does not send or store your enquiry.";
-        // Keep the visitor's enquiry visible because this static demo does not transmit it.
+        let confirmation = "Thank you, " + name.value.trim() + ". Your " + questionType.value.toLowerCase() + " enquiry about " + category.value + " has been submitted. Our team will respond to your request.";
+        if (questionType.value === "Price") confirmation += " The exact price will be confirmed by the store; prices are not calculated live on this website.";
+        if (questionType.value === "Availability") confirmation += " The store will confirm current stock, sizes and colours; live inventory is not connected to this website.";
+        await submitFormByEmail(enquiryForm, response, enquiryForm.querySelector('button[type="submit"]'), confirmation);
     });
 }
 
-// Contact form.
+// Contact form: validate contact information and send the full message asynchronously.
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
-    contactForm.addEventListener("submit", function (event) {
+    contactForm.addEventListener("submit", async function (event) {
         event.preventDefault();
         const name = document.getElementById("contactName");
         const email = document.getElementById("contactEmail");
         const phone = document.getElementById("contactPhone");
         const type = document.getElementById("messageType");
         const message = document.getElementById("contactMessage");
-        const valid = [
-            validateText(name, "Full name", 2),
-            validateEmail(email),
-            validateText(phone, "Phone number", 7) && (function () {
-                if (!isValidPhone(phone.value.trim())) { showFieldError(phone, "Enter a valid phone number with 7 to 15 digits."); return false; }
-                clearFieldError(phone); return true;
-            })(),
-            validateSelect(type, "a message type"),
-            validateText(message, "Your message", 10)
-        ].every(Boolean);
+        const phoneValid = validateText(phone, "Phone number", 7) && isValidPhone(phone.value.trim());
+        if (!phoneValid && phone.value.trim().length >= 7) showFieldError(phone, "Enter a valid phone number with 7 to 15 digits.");
+        const valid = [validateText(name, "Full name", 2), validateEmail(email), phoneValid,
+            validateSelect(type, "a message type"), validateText(message, "Your message", 10)].every(Boolean);
         const response = document.getElementById("contactResponse");
         if (!valid) {
             response.textContent = "Please correct the highlighted fields and submit the form again.";
@@ -148,12 +169,10 @@ if (contactForm) {
             if (firstInvalid) firstInvalid.focus();
             return;
         }
-        response.textContent = "Thank you, " + name.value.trim() +
-            ". Your message passed validation. This static coursework website does not send or store messages because no verified business email or form-processing service is connected.";
-        // Keep the visitor's message visible because this static demo does not transmit it.
+        const confirmation = "Thank you, " + name.value.trim() + ". Your " + type.value.toLowerCase() + " message has been submitted to the ELITE WEAR contact service.";
+        await submitFormByEmail(contactForm, response, contactForm.querySelector('button[type="submit"]'), confirmation);
     });
 }
-
 // Browser-local shopping cart. It stores category quantities only, not payment or personal data.
 const CART_STORAGE_KEY = "eliteWearCart";
 function readCart() {
