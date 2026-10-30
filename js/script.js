@@ -16,11 +16,19 @@ function showFieldError(field, message) {
     }
     error.textContent = message;
     field.setAttribute("aria-invalid", message ? "true" : "false");
+    if (message) {
+        const describedBy = (field.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(error.id)) describedBy.push(error.id);
+        field.setAttribute("aria-describedby", describedBy.join(" "));
+    }
 }
 function clearFieldError(field) {
     const error = document.getElementById(field.id + "Error");
     if (error) error.textContent = "";
     field.removeAttribute("aria-invalid");
+    const describedBy = (field.getAttribute("aria-describedby") || "").split(/\s+/).filter(id => id && id !== field.id + "Error");
+    if (describedBy.length) field.setAttribute("aria-describedby", describedBy.join(" "));
+    else field.removeAttribute("aria-describedby");
 }
 function isValidEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
@@ -50,6 +58,38 @@ function validateSelect(field, label) {
     clearFieldError(field);
     return true;
 }
+
+function validateFormField(field) {
+    if (field.id === "enquiryName" || field.id === "contactName") return validateText(field, "Full name", 2);
+    if (field.id === "enquiryEmail" || field.id === "contactEmail" || field.id === "email") return validateEmail(field);
+    if (field.id === "contactPhone") {
+        if (!validateText(field, "Phone number", 7)) return false;
+        if (!isValidPhone(field.value.trim())) {
+            showFieldError(field, "Enter a valid phone number with 7 to 15 digits.");
+            return false;
+        }
+        clearFieldError(field);
+        return true;
+    }
+    if (field.id === "enquiryMessage") return validateText(field, "Your enquiry", 10);
+    if (field.id === "contactMessage") return validateText(field, "Your message", 10);
+    if (field.id === "password") return validateText(field, "Password", 6);
+    if (field.id === "productCategory") return validateSelect(field, "a product category");
+    if (field.id === "productQuestion") return validateSelect(field, "an enquiry type");
+    if (field.id === "messageType") return validateSelect(field, "a message type");
+    return true;
+}
+document.querySelectorAll("#enquiryForm, #contactForm, #loginForm").forEach(function (form) {
+    form.querySelectorAll("input, select, textarea").forEach(function (field) {
+        field.addEventListener("blur", function () { validateFormField(field); });
+        field.addEventListener("input", function () {
+            if (field.getAttribute("aria-invalid") === "true") validateFormField(field);
+        });
+        field.addEventListener("change", function () {
+            if (field.getAttribute("aria-invalid") === "true") validateFormField(field);
+        });
+    });
+});
 
 // Product enquiry form.
 const enquiryForm = document.getElementById("enquiryForm");
@@ -109,14 +149,10 @@ if (contactForm) {
             if (firstInvalid) firstInvalid.focus();
             return;
         }
-        const recipient = "elitewear@example.com";
-        const subject = "ELITE WEAR - " + type.value;
-        const body = "Name: " + name.value.trim() + "\nEmail: " + email.value.trim() +
-            "\nPhone: " + phone.value.trim() + "\nMessage Type: " + type.value +
-            "\n\nMessage:\n" + message.value.trim();
-        response.textContent = "Your message passed JavaScript validation. Review the draft in your email application and press Send.";
-        window.location.href = "mailto:" + recipient + "?subject=" +
-            encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        response.textContent = "Thank you, " + name.value.trim() +
+            ". Your message passed validation. This static coursework website does not send or store messages because no verified business email or form-processing service is connected.";
+        contactForm.reset();
+        contactForm.querySelectorAll("input, select, textarea").forEach(clearFieldError);
     });
 }
 
