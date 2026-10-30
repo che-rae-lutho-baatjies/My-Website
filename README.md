@@ -354,7 +354,7 @@ Controls the visual appearance, typography, spacing, colours, grids, cards, butt
 
 ### JavaScript
 
-Provides the enquiry-form confirmation interaction. A concise comment explains the purpose of the demonstration function.
+Provides client-side form validation, asynchronous form submission, product search and sorting, image lightbox behaviour, FAQ accordions, cart interactions and login-form demonstration feedback.
 
 ### GitHub
 
@@ -452,6 +452,11 @@ The following changelog records the main development stages of the website. The 
 | `bdafb3f` | Improved FAQ page keyboard accessibility. |
 | `e8f4516` | Documented Part 3 functionality and the verification checklist. |
 | `6eea906` | Updated the README contents list to include Part 3 sections. |
+| `8b44090` | Connected the Enquiry form to the FormSubmit AJAX endpoint with POST submission, email metadata and a honeypot field. |
+| `81c8937` | Connected the Contact form to the FormSubmit AJAX endpoint and improved telephone input validation. |
+| `5da3a52` | Added asynchronous form submission handling, loading feedback and accessible success/failure messages while preserving cart and page interactions. |
+| `69698f1` | Updated the README with the final AJAX form workflow, recipient activation, privacy considerations and testing requirements. |
+| `9f332f3` | Updated Part 3 documentation, changelog entries and APA-style references for the latest implementation. |
 
 The project therefore demonstrates multiple incremental, descriptive commits rather than one large submission commit.
 
@@ -521,7 +526,7 @@ The Enquiry and Contact forms use the FormSubmit service to forward submitted me
 
 ### Enquiry form — `Pages/enquiry.html`
 
-The enquiry form collects the customer's name, email address, product category, enquiry type and a full message. Required fields, the email input type and minimum text lengths support validation. After successful browser-side validation, JavaScript displays a response related to the selected category and enquiry type.
+The enquiry form collects the customer's name, email address, product category, enquiry type and a full message. Required fields, the email input type and minimum text lengths support validation. After successful validation, JavaScript submits the form asynchronously through FormSubmit and displays a sending, success or failure response. The store must confirm exact prices and stock because no live inventory system is connected.
 
 ### Contact form — `Pages/contact.html`
 
@@ -585,7 +590,7 @@ Confirm the final URL in GitHub Pages settings rather than assuming the proposed
 
 The following practical features are included in the repository:
 
-- **Enquiry form:** browser validation, required-field checks, trimmed text values and a confirmation response explaining the form's demonstration status.
+- **Enquiry form:** browser validation, required-field checks, trimmed text values and asynchronous submission to the configured FormSubmit recipient. Exact prices and stock still require confirmation by the store.
 - **Contact form:** browser validation for name, email, phone, message type and full message; submits the message asynchronously to the configured FormSubmit recipient.
 - **Shopping cart:** product-category buttons add categories to a browser-local cart; users can increase/decrease quantities, remove a category and clear the cart. The cart uses `localStorage` and does not collect personal information.
 - **Customer login demonstration:** validates required fields and explains that real authentication is not available. Passwords are not stored or sent by this front-end script.
@@ -605,7 +610,7 @@ The root-level `index.html` is the GitHub Pages entry page and links to the page
 - [ ] Test the Products add-to-cart buttons, then change quantities and remove/clear items on the Shopping Cart page.
 - [ ] Reload the page to confirm the cart persists in the same browser.
 - [ ] Submit Enquiry and Contact with empty and valid inputs to test validation.
-- [ ] Confirm Contact opens an email draft and replace the placeholder recipient first.
+- [ ] Confirm Contact submits asynchronously without reloading the page; complete recipient activation and verify delivery with a test message.
 - [ ] Submit the Customer Login form and confirm the demonstration notice appears.
 - [ ] Test keyboard-only navigation and a narrow mobile viewport.
 - [ ] Check browser developer tools for broken links, missing assets and JavaScript errors.
