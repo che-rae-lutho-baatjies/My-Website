@@ -33,15 +33,15 @@
             <form id="enquiryForm" class="form enquiry-form" novalidate>
                 <div class="form-group">
                     <label for="enquiryName">Full Name</label>
-                    <input id="enquiryName" name="name" type="text" required minlength="2" autocomplete="name">
+                    <input id="enquiryName" name="name" type="text" autocomplete="name">
                 </div>
                 <div class="form-group">
                     <label for="enquiryEmail">Email Address</label>
-                    <input id="enquiryEmail" name="email" type="email" required autocomplete="email">
+                    <input id="enquiryEmail" name="email" type="text" inputmode="email" autocomplete="email">
                 </div>
                 <div class="form-group">
                     <label for="productCategory">Product Category</label>
-                    <select id="productCategory" name="category" required>
+                    <select id="productCategory" name="category">
                         <option value="">-- Select a category --</option>
                         <option value="Dresses">Dresses</option>
                         <option value="Shirts & Tops">Shirts & Tops</option>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label for="productQuestion">Enquiry Type</label>
-                    <select id="productQuestion" name="questionType" required>
+                    <select id="productQuestion" name="questionType">
                         <option value="">-- Select an enquiry type --</option>
                         <option value="Price">Price</option>
                         <option value="Availability">Availability</option>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label for="enquiryMessage">Your Enquiry</label>
-                    <textarea id="enquiryMessage" name="message" required minlength="10" placeholder="Tell us what you would like to know..."></textarea>
+                    <textarea id="enquiryMessage" name="message" placeholder="Tell us what you would like to know..."></textarea>
                 </div>
                 <button class="btn submit-btn" type="submit">Submit Enquiry</button>
                 <div id="enquiryResponse" class="form-response" aria-live="polite"></div>
