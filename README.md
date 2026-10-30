@@ -751,3 +751,61 @@ This checklist records tasks for manual verification. Do not mark an item comple
 - [ ] Run a page-speed audit and review image transfer sizes, unused CSS/JavaScript and mobile performance.
 - [ ] Configure suitable security response headers through the hosting/CDN provider if available.
 - [ ] Complete real social profile, backlink and business-directory work only after verifying the business details and live URL.
+
+
+---
+
+## 28. Form Functionality and Validation
+
+The Enquiry, Contact and Customer Login pages use JavaScript to check form information before showing a result. HTML attributes identify required fields and provide suitable input types and length limits.
+
+### Form functionality
+
+- **Product Enquiry form:** visitors must enter their name and email address, select a product category and enquiry type, and provide an enquiry of at least 10 characters.
+- **Contact form:** visitors must enter their name, email address and phone number, choose a message type, and write a message of at least 10 characters.
+- **Customer Login form:** visitors must enter a valid email address and a password containing at least six characters. This is a front-end demonstration only; it does not authenticate a customer.
+- **Required fields:** form controls use the HTML `required` attribute, with email, telephone and password input types selected for the relevant information.
+- **Input limits:** name, email, phone, password and message fields have maximum lengths to reduce accidental oversized input.
+
+### JavaScript validation
+
+- Checks that required text fields are not empty after trimming spaces.
+- Checks that names contain at least two characters.
+- Checks email addresses for a basic valid email format.
+- Checks phone numbers for 7 to 15 digits and permits common formatting characters such as spaces, brackets, plus signs and hyphens.
+- Checks that the visitor selects an option from each required drop-down list.
+- Checks that enquiry and contact messages contain at least 10 characters.
+- Checks that the demonstration password contains at least six characters.
+- Shows a clear error message beside an invalid field and marks the field with `aria-invalid`.
+- Associates error messages with their fields for assistive technology.
+- Rechecks fields when visitors leave them and as they correct invalid information.
+- Moves keyboard focus to the first invalid field after an unsuccessful submission.
+- Displays a confirmation message after all validation rules pass.
+
+### Important limitations
+
+The website is hosted as a static front-end project. Passing validation does **not** mean that a message has been delivered or stored. No verified business email address or form-processing backend has been supplied, so the Contact and Enquiry forms display a clear demonstration confirmation rather than pretending to send a message. The login form does not create accounts, verify passwords or store credentials. A secure backend or trusted form service is required for real message delivery and customer authentication. Do not enter real passwords or sensitive personal information into this demonstration.
+
+### Files updated
+
+- `Pages/enquiry.html`: required fields, email input type and sensible length limits.
+- `Pages/contact.html`: required fields, email and telephone input types, and message length limits.
+- `Pages/login.html`: required email and password fields with a minimum password length.
+- `js/script.js`: live field validation, accessible error associations, first-invalid-field focus and honest success feedback.
+- `css/style.css`: visible styling for invalid fields and validation messages.
+
+### Form testing checklist
+
+- [ ] Submit each form with every field empty and confirm that required-field errors appear.
+- [ ] Enter an invalid email address and confirm that it is rejected.
+- [ ] Enter a name shorter than two characters and confirm that it is rejected.
+- [ ] Enter a phone number with fewer than seven digits or more than 15 digits and confirm that it is rejected.
+- [ ] Leave each drop-down list at its default option and confirm that a selection is required.
+- [ ] Enter a message shorter than 10 characters and confirm that it is rejected.
+- [ ] Enter valid information and confirm that the appropriate validation confirmation appears.
+- [ ] Correct an invalid field and confirm that its error clears while typing.
+- [ ] Use only the keyboard and confirm that focus moves to the first invalid field.
+- [ ] Confirm that the forms do not claim to send, store or authenticate information.
+- [ ] Test the forms on desktop and mobile screen sizes and check the browser console for errors.
+
+Only tick the checklist after manually completing each test in a browser.
