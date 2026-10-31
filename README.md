@@ -906,7 +906,7 @@ Use this matrix during manual browser testing. Do not mark a test complete until
 |---|---|---|---|
 | Part 2 feedback | Recheck each documented correction | Original issue is resolved | Pending manual verification |
 | Navigation | Check all local `href` and `src` targets in the HTML files | No missing internal file paths or same-page fragments were found in the static link audit; browser clicking remains pending | Static audit passed; browser check pending |
-| JavaScript | Test product search and shopping cart | Product search and shopping-cart functions work, as confirmed by the user; FAQ accordion and product lightbox still need manual verification | Partially tested: product search and cart confirmed by user |
+| JavaScript | Test product search, shopping cart and FAQ accordion | Product search, shopping-cart functions and FAQ expand/collapse work, as confirmed by the user; product lightbox still needs manual verification | Partially tested: search, cart and FAQ confirmed by user |
 | Forms | Submit empty, invalid and valid Enquiry/Contact details | Clear errors for invalid input; valid request follows intended submission path | User confirmed Contact and Enquiry submissions work and emails are received |
 | SEO | Inspect titles, descriptions, headings, image alt text and sitemap URLs | All eight main HTML pages have titles, descriptions and canonical links; all checked images have `alt` attributes; sitemap and robots file use the project Pages URL | Static audit passed; live URL check pending |
 | Responsive design | Test desktop, tablet and phone widths | No major overflow; navigation, forms, map and images remain usable | Pending manual verification |
@@ -930,7 +930,7 @@ Keep screenshots or other evidence showing:
 8. The GitHub repository showing the updated files and descriptive commit history.
 9. The deployed website URL working in a private/incognito browser window.
 
-**User-confirmed test results (2026-10-31):** The user confirmed that product search works, the shopping cart works, and Contact/Enquiry form submissions send emails that can be received. Other interactive features remain pending until individually tested.
+**User-confirmed test results (2026-10-31):** The user confirmed that product search works, the shopping cart works, the FAQ questions expand and collapse, and Contact/Enquiry form submissions send emails that can be received. The product image lightbox and other responsive/accessibility checks remain pending until individually tested.
 
 ### 29.7 Final publishing checklist
 
