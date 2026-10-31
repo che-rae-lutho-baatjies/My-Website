@@ -905,16 +905,16 @@ Use this matrix during manual browser testing. Do not mark a test complete until
 | Area | Test | Expected result | Status |
 |---|---|---|---|
 | Part 2 feedback | Recheck each documented correction | Original issue is resolved | Pending manual verification |
-| Navigation | Open every page and follow header/footer links | No broken internal links | Pending manual verification |
+| Navigation | Check all local `href` and `src` targets in the HTML files | No missing internal file paths or same-page fragments were found in the static link audit; browser clicking remains pending | Static audit passed; browser check pending |
 | JavaScript | Use FAQ, product search/sort, lightbox and cart | Each control responds correctly | Pending manual verification |
 | Forms | Submit empty, invalid and valid Enquiry/Contact details | Clear errors for invalid input; valid request follows intended submission path | Pending manual verification |
-| SEO | Inspect titles, descriptions, headings, image alt text and sitemap URLs | Metadata is relevant and URLs match the published site | Pending manual verification |
+| SEO | Inspect titles, descriptions, headings, image alt text and sitemap URLs | All eight main HTML pages have titles, descriptions and canonical links; all checked images have `alt` attributes; sitemap and robots file use the project Pages URL | Static audit passed; live URL check pending |
 | Responsive design | Test desktop, tablet and phone widths | No major overflow; navigation, forms, map and images remain usable | Pending manual verification |
 | Accessibility | Use keyboard navigation and reduced-motion settings | Focus is visible and motion is reduced when requested | Pending manual verification |
 | Performance | Check image loading and browser console/network panel | No avoidable oversized assets or script errors | Pending manual verification |
 | Security | Inspect repository for credentials and test form handling | No secrets committed; no sensitive information requested by demo features | Pending manual verification |
 | Deployment workflow | Check the latest GitHub Pages Actions run | Latest deployment workflow completed successfully for commit `d4830fd9` on 2026-10-31; live browser checks remain outstanding | Passed (GitHub Actions) |
-| Repository | Inspect latest commit, README, assets and file paths | Correct branch contains the complete submission | Pending final check |
+| External stylesheet | Check the stylesheet link on each main HTML page | All eight main HTML pages reference the shared external `css/style.css` file | Passed (static audit) |\n| Repository | Inspect latest commit, README, assets and file paths | Correct branch contains the complete submission | Passed (main branch and required project files verified) |
 
 ### 29.6 Evidence to retain for assessment
 
@@ -940,4 +940,4 @@ Keep screenshots or other evidence showing:
 - [ ] Complete FormSubmit recipient activation and test real email delivery.
 - [ ] Capture the requested assessment evidence and submit both the GitHub repository link and live website link to the LMS.
 
-**Assessment honesty note:** The repository contains the documented implementation, but manual browser tests, external FormSubmit activation/email delivery, confirmation of the map pin, off-page SEO activity and successful live-page loading must be verified separately before they can be reported as completed. GitHub Pages is enabled and its latest deployment workflow succeeded.
+**Assessment honesty note:** The repository contains the documented implementation, but manual browser tests, external FormSubmit activation/email delivery, confirmation of the map pin, off-page SEO activity and successful live-page loading must be verified separately before they can be reported as completed. A static source audit found no missing local HTML file paths or same-page fragments; all eight main pages link to the shared stylesheet and all checked images have alternative text. GitHub Pages is enabled and its latest deployment workflow succeeded.
