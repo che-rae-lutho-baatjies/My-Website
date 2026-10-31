@@ -914,7 +914,8 @@ Use this matrix during manual browser testing. Do not mark a test complete until
 | Performance | Check image loading and browser console/network panel | No avoidable oversized assets or script errors | Pending manual verification |
 | Security | Inspect repository for credentials and test form handling | No secrets committed; no sensitive information requested by demo features | Pending manual verification |
 | Deployment workflow | Check the latest GitHub Pages Actions run | Latest deployment workflow completed successfully for commit `d4830fd9` on 2026-10-31; live browser checks remain outstanding | Passed (GitHub Actions) |
-| External stylesheet | Check the stylesheet link on each main HTML page | All eight main HTML pages reference the shared external `css/style.css` file | Passed (static audit) |\n| Repository | Inspect latest commit, README, assets and file paths | Correct branch contains the complete submission | Passed (main branch and required project files verified) |
+| External stylesheet | Check the stylesheet link on each main HTML page | All eight main HTML pages reference the shared external `css/style.css` file | Passed (static audit) |
+| Repository | Inspect latest commit, README, assets and file paths | Correct branch contains the complete submission | Passed (main branch and required project files verified) |
 
 ### 29.6 Evidence to retain for assessment
 
