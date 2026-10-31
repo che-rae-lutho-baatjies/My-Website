@@ -39,6 +39,7 @@
 26. Part 4 – JavaScript enhancements
 27. Part 5 – Search Engine Optimisation (SEO)
 28. Form functionality, validation and AJAX submission
+29. POE Part 3 guide alignment and evidence
 
 > **Proposal documentation note:** If this README is used together with a separate proposal, update the proposal's table-of-contents page numbers after final editing. Page numbers should match the final PDF/Word document rather than being copied from an earlier draft.
 
@@ -844,3 +845,96 @@ The form service is a third-party processor. Form submissions contain the person
 - [ ] Test the forms on desktop and mobile screen sizes.
 
 Only tick the checklist after completing each test. The code has been updated, but the live form service, recipient activation and actual email delivery still need to be tested in a browser.
+
+
+---
+
+## 29. POE Part 3 Guide Alignment and Evidence
+
+This section maps the ELITE WEAR repository to the *WEDE5020 POE Part 3 Requirements, Implementation & Evidence Guide*. The guide explains that Part 3 must demonstrate improvements, useful JavaScript, SEO, validated forms, documentation, version control and a published website. Implementation in source code and successful manual testing are recorded separately.
+
+### 29.1 Feedback and documentation
+
+- Part 2 corrections are described in the project changelog, including navigation/page structure, forms, responsive styling, accessibility and SEO updates.
+- Each documented correction explains the issue, the change and the intended result rather than using a generic entry such as “fixed website”.
+- The README includes the project overview, feature descriptions, setup instructions, folder structure, changelog, references, limitations and deployment instructions.
+- Relevant implementation files remain in the repository so that the lecturer can inspect the actual HTML, CSS and JavaScript.
+
+### 29.2 Functionality implemented
+
+| Guide requirement | ELITE WEAR implementation | Location |
+|---|---|---|
+| Interactive user interface | FAQ accordion with expandable answers | `Pages/faq.html`, `js/script.js` |
+| Interactive map | Embedded Google Map and directions link for the store address | `Pages/contact.html` |
+| Animation and transitions | Subtle card, image, button and FAQ transitions/animations; reduced-motion support | `css/style.css` |
+| DOM manipulation | Product filtering/sorting and JavaScript-created FAQ controls | `js/script.js` |
+| Image gallery/lightbox | Selectable product images open a larger image dialog with close controls | `Pages/products.html`, `js/script.js` |
+| Dynamic content | Product cards are filtered, reordered and counted in response to user input | `Pages/products.html`, `js/script.js` |
+| Search and sort | Search by product text and sort categories A–Z or Z–A | `Pages/products.html`, `js/script.js` |
+| Shopping cart interaction | Add, increase, decrease, remove and clear category selections; browser-local persistence | `Pages/cart.html`, `js/script.js` |
+
+The map pin must be checked against the real store location before publication. Product catalogue content is maintained in the project files; it is not loaded from a live inventory database. The shopping cart is a front-end demonstration and does not process orders or payments.
+
+### 29.3 SEO, performance and security
+
+- Main public pages have unique descriptive title tags and page-specific meta descriptions.
+- Pages use a meaningful heading hierarchy, descriptive image alternative text, internal navigation and mobile viewport settings.
+- Canonical URLs, Open Graph/Twitter sharing metadata, `robots.txt` and `sitemap.xml` are included. These URLs must match the final verified deployment address.
+- The homepage includes ClothingStore structured data based on the business details already displayed on the site.
+- Images use responsive sizing, lazy loading where appropriate, asynchronous decoding and resized image URLs. External resources are kept limited to the features used by the site.
+- Form inputs are checked for expected values and lengths. Field errors are shown beside the relevant fields.
+- No API keys, passwords or private credentials should be committed to this public repository. Do not enter real passwords or payment-card details into the demonstration login or cart.
+- GitHub Pages is static hosting. HTTPS can be used when Pages is enabled; server-side security headers, authentication and payment processing require hosting/backend services beyond this static project.
+- Off-page SEO actions such as verified social profiles, legitimate backlinks and business-directory listings must be completed externally. They cannot be truthfully claimed as completed by editing website files.
+
+### 29.4 Form requirements
+
+- `Pages/enquiry.html` is for questions about a product category, price, availability, size/colour or product information.
+- `Pages/contact.html` is for general communication and collects contact details, message type and the full message.
+- Both forms include an `action` and `method`, HTML form attributes, JavaScript validation, accessible field-level error messages and asynchronous submission through FormSubmit.
+- The FormSubmit recipient must activate the service and the student must test actual email delivery. A success message from the service is not proof that the recipient has read the email.
+- The login form is a validation-only demonstration; it does not create accounts or authenticate customers.
+
+### 29.5 Part 3 testing matrix
+
+Use this matrix during manual browser testing. Do not mark a test complete until it has been performed on the local project and, after deployment, on the live website.
+
+| Area | Test | Expected result | Status |
+|---|---|---|---|
+| Part 2 feedback | Recheck each documented correction | Original issue is resolved | Pending manual verification |
+| Navigation | Open every page and follow header/footer links | No broken internal links | Pending manual verification |
+| JavaScript | Use FAQ, product search/sort, lightbox and cart | Each control responds correctly | Pending manual verification |
+| Forms | Submit empty, invalid and valid Enquiry/Contact details | Clear errors for invalid input; valid request follows intended submission path | Pending manual verification |
+| SEO | Inspect titles, descriptions, headings, image alt text and sitemap URLs | Metadata is relevant and URLs match the published site | Pending manual verification |
+| Responsive design | Test desktop, tablet and phone widths | No major overflow; navigation, forms, map and images remain usable | Pending manual verification |
+| Accessibility | Use keyboard navigation and reduced-motion settings | Focus is visible and motion is reduced when requested | Pending manual verification |
+| Performance | Check image loading and browser console/network panel | No avoidable oversized assets or script errors | Pending manual verification |
+| Security | Inspect repository for credentials and test form handling | No secrets committed; no sensitive information requested by demo features | Pending manual verification |
+| Deployment | Open the published URL in a private/incognito window | All pages, assets, forms and JavaScript work online | Pending deployment/browser verification |
+| Repository | Inspect latest commit, README, assets and file paths | Correct branch contains the complete submission | Pending final check |
+
+### 29.6 Evidence to retain for assessment
+
+Keep screenshots or other evidence showing:
+1. The Products page search results and both sorting orders.
+2. The product image lightbox open and closed.
+3. The FAQ accordion expanded and collapsed.
+4. The Contact page map and directions link.
+5. Valid and invalid Enquiry and Contact form submissions, including the response messages.
+6. The cart after adding items, changing quantities and clearing it.
+7. The website at desktop and mobile widths.
+8. The GitHub repository showing the updated files and descriptive commit history.
+9. The deployed website URL working in a private/incognito browser window.
+
+### 29.7 Final publishing checklist
+
+- [ ] Confirm the correct repository and `main` branch contain the latest files.
+- [ ] Confirm all HTML pages, CSS, JavaScript, images/assets, README, changelog, references, `robots.txt` and `sitemap.xml` are committed.
+- [ ] Enable GitHub Pages from the intended branch/folder in repository Settings → Pages.
+- [ ] Copy the actual published URL from GitHub Pages settings; do not assume a URL is live merely because it follows the expected GitHub Pages pattern.
+- [ ] Confirm canonical links, Open Graph URLs, sitemap URLs and the robots sitemap reference use that published URL.
+- [ ] Open the live site in a private/incognito window and test navigation, images, map, JavaScript and both forms.
+- [ ] Complete FormSubmit recipient activation and test real email delivery.
+- [ ] Capture the requested assessment evidence and submit both the GitHub repository link and live website link to the LMS.
+
+**Assessment honesty note:** The repository contains the documented implementation, but manual browser tests, external FormSubmit activation/email delivery, confirmation of the map pin, off-page SEO activity and GitHub Pages deployment must be verified separately before they can be reported as completed.
