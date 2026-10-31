@@ -913,7 +913,7 @@ Use this matrix during manual browser testing. Do not mark a test complete until
 | Accessibility | Use keyboard navigation and reduced-motion settings | Focus is visible and motion is reduced when requested | Pending manual verification |
 | Performance | Check image loading and browser console/network panel | No avoidable oversized assets or script errors | Pending manual verification |
 | Security | Inspect repository for credentials and test form handling | No secrets committed; no sensitive information requested by demo features | Pending manual verification |
-| Deployment workflow | Check the latest GitHub Pages Actions run | Latest deployment workflow completed successfully for commit `d4830fd9` on 2026-10-31; live browser checks remain outstanding | Passed (GitHub Actions) |
+| Deployment workflow | Check the latest GitHub Pages Actions run and open the published homepage | GitHub Pages deployment workflow completed successfully; the user confirmed that the published ELITE WEAR homepage opens correctly | Passed (workflow and homepage) |
 | External stylesheet | Check the stylesheet link on each main HTML page | All eight main HTML pages reference the shared external `css/style.css` file | Passed (static audit) |
 | Repository | Inspect latest commit, README, assets and file paths | Correct branch contains the complete submission | Passed (main branch and required project files verified) |
 
@@ -941,4 +941,4 @@ Keep screenshots or other evidence showing:
 - [ ] Complete FormSubmit recipient activation and test real email delivery.
 - [ ] Capture the requested assessment evidence and submit both the GitHub repository link and live website link to the LMS.
 
-**Assessment honesty note:** The repository contains the documented implementation, but manual browser tests, external FormSubmit activation/email delivery, confirmation of the map pin, off-page SEO activity and successful live-page loading must be verified separately before they can be reported as completed. A static source audit found no missing local HTML file paths or same-page fragments; all eight main pages link to the shared stylesheet and all checked images have alternative text. GitHub Pages is enabled and its latest deployment workflow succeeded.
+**Assessment honesty note:** The repository contains the documented implementation, but manual browser tests, external FormSubmit activation/email delivery, confirmation of the map pin, off-page SEO activity and successful live-page loading must be verified separately before they can be reported as completed. The user has now confirmed that the published homepage opens correctly; this does not yet confirm every individual page, form or interactive control. A static source audit found no missing local HTML file paths or same-page fragments; all eight main pages link to the shared stylesheet and all checked images have alternative text. GitHub Pages is enabled and its latest deployment workflow succeeded.
