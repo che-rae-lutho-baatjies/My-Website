@@ -430,7 +430,7 @@ The project uses incremental and descriptive commits. Each update is committed d
 The following changelog records the main development stages of the website. The entries below use the actual commits that were verified in the repository.
 
 | Commit | Development change |
-|---|---|
+|---|---|\n| `9020c835` | Mapped the Part 3 requirements guide to implemented features and added a detailed testing/evidence checklist. |
 | `b38f625` | Created an editable external CSS template for the website pages. |
 | `d01a002` | Updated the README with HTML and CSS features and syntax. |
 | `c335792` | Replaced the Services page with the Products page. |
@@ -587,7 +587,7 @@ Confirm the final URL in GitHub Pages settings rather than assuming the proposed
 - **2026-10-30 — Update documentation for the final form implementation:** replaced outdated mailto/demo descriptions with the current FormSubmit AJAX workflow, documented recipient activation, privacy considerations and the difference between service acceptance and confirmed email delivery.
 
 
-## 24. Part 3 – Functionality Implemented
+- **2026-10-31 — Add Part 3 guide alignment and evidence plan:** mapped the requirements guide to the implemented ELITE WEAR features, documented SEO, security and form expectations, and added a manual testing matrix, assessment evidence list and final publishing checklist. Manual tests and deployment remain pending verification.\n\n## 24. Part 3 – Functionality Implemented
 
 The following practical features are included in the repository:
 
