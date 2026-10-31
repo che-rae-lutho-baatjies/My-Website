@@ -909,7 +909,7 @@ Use this matrix during manual browser testing. Do not mark a test complete until
 | JavaScript | Test product search, shopping cart, FAQ accordion and product image lightbox | Product search, shopping-cart functions, FAQ expand/collapse and product image lightbox open/close work, as confirmed by the user | User confirmed search, cart, FAQ and lightbox tests passed |
 | Forms | Submit empty, invalid and valid Enquiry/Contact details | Clear errors for invalid input; valid request follows intended submission path | User confirmed Contact and Enquiry submissions work and emails are received |
 | SEO | Inspect titles, descriptions, headings, image alt text and sitemap URLs | All eight main HTML pages have titles, descriptions and canonical links; all checked images have `alt` attributes; sitemap and robots file use the project Pages URL | Static audit passed; live URL check pending |
-| Responsive design | Test desktop, tablet and phone widths | No major overflow; navigation, forms, map and images remain usable | Pending manual verification |
+| Responsive design | Check the live website on a phone and use its navigation | User confirmed that the pages fit the phone screen and navigation works without horizontal scrolling; tablet and desktop checks remain separate | Phone test confirmed by user; tablet/desktop checks pending |
 | Accessibility | Use keyboard navigation and reduced-motion settings | Focus is visible and motion is reduced when requested | Pending manual verification |
 | Performance | Check image loading and browser console/network panel | No avoidable oversized assets or script errors | Pending manual verification |
 | Security | Inspect repository for credentials and test form handling | No secrets committed; no sensitive information requested by demo features | Pending manual verification |
@@ -930,7 +930,7 @@ Keep screenshots or other evidence showing:
 8. The GitHub repository showing the updated files and descriptive commit history.
 9. The deployed website URL working in a private/incognito browser window.
 
-**User-confirmed test results (2026-10-31):** The user confirmed that product search works, the shopping cart works, the FAQ questions expand and collapse, product pictures open in a larger lightbox and can be closed, and Contact/Enquiry form submissions send emails that can be received. Responsive/accessibility checks and any remaining browser checks remain pending until individually tested.
+**User-confirmed test results (2026-10-31):** The user confirmed that product search works, the shopping cart works, the FAQ questions expand and collapse, product pictures open in a larger lightbox and can be closed, Contact/Enquiry form submissions send emails that can be received, and the user confirmed that the website fits a phone screen with usable navigation and no horizontal scrolling. Tablet and desktop layout checks, keyboard accessibility and reduced-motion checks remain pending until individually tested.
 
 ### 29.7 Final publishing checklist
 
