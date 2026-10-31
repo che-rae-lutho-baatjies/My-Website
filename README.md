@@ -430,7 +430,8 @@ The project uses incremental and descriptive commits. Each update is committed d
 The following changelog records the main development stages of the website. The entries below use the actual commits that were verified in the repository.
 
 | Commit | Development change |
-|---|---|\n| `9020c835` | Mapped the Part 3 requirements guide to implemented features and added a detailed testing/evidence checklist. |
+|---|---|
+| `9020c835` | Mapped the Part 3 requirements guide to implemented features and added a detailed testing/evidence checklist. |
 | `b38f625` | Created an editable external CSS template for the website pages. |
 | `d01a002` | Updated the README with HTML and CSS features and syntax. |
 | `c335792` | Replaced the Services page with the Products page. |
@@ -587,7 +588,9 @@ Confirm the final URL in GitHub Pages settings rather than assuming the proposed
 - **2026-10-30 — Update documentation for the final form implementation:** replaced outdated mailto/demo descriptions with the current FormSubmit AJAX workflow, documented recipient activation, privacy considerations and the difference between service acceptance and confirmed email delivery.
 
 
-- **2026-10-31 — Add Part 3 guide alignment and evidence plan:** mapped the requirements guide to the implemented ELITE WEAR features, documented SEO, security and form expectations, and added a manual testing matrix, assessment evidence list and final publishing checklist. Manual tests and deployment remain pending verification.\n\n## 24. Part 3 – Functionality Implemented
+- **2026-10-31 — Add Part 3 guide alignment and evidence plan:** mapped the requirements guide to the implemented ELITE WEAR features, documented SEO, security and form expectations, and added a manual testing matrix, assessment evidence list and final publishing checklist. Manual tests and deployment remain pending verification.
+
+## 24. Part 3 – Functionality Implemented
 
 The following practical features are included in the repository:
 
@@ -910,7 +913,7 @@ Use this matrix during manual browser testing. Do not mark a test complete until
 | Accessibility | Use keyboard navigation and reduced-motion settings | Focus is visible and motion is reduced when requested | Pending manual verification |
 | Performance | Check image loading and browser console/network panel | No avoidable oversized assets or script errors | Pending manual verification |
 | Security | Inspect repository for credentials and test form handling | No secrets committed; no sensitive information requested by demo features | Pending manual verification |
-| Deployment | Open the published URL in a private/incognito window | All pages, assets, forms and JavaScript work online | Pending deployment/browser verification |
+| Deployment workflow | Check the latest GitHub Pages Actions run | Latest deployment workflow completed successfully for commit `d4830fd9` on 2026-10-31; live browser checks remain outstanding | Passed (GitHub Actions) |
 | Repository | Inspect latest commit, README, assets and file paths | Correct branch contains the complete submission | Pending final check |
 
 ### 29.6 Evidence to retain for assessment
@@ -930,11 +933,11 @@ Keep screenshots or other evidence showing:
 
 - [ ] Confirm the correct repository and `main` branch contain the latest files.
 - [ ] Confirm all HTML pages, CSS, JavaScript, images/assets, README, changelog, references, `robots.txt` and `sitemap.xml` are committed.
-- [ ] Enable GitHub Pages from the intended branch/folder in repository Settings → Pages.
-- [ ] Copy the actual published URL from GitHub Pages settings; do not assume a URL is live merely because it follows the expected GitHub Pages pattern.
+- [x] GitHub Pages is enabled for this repository (`has_pages: true`) and the latest Pages build/deployment workflow completed successfully on 2026-10-31.
+- [ ] Open the proposed published URL in a browser and confirm it loads; the browser check could not be completed from this review.
 - [ ] Confirm canonical links, Open Graph URLs, sitemap URLs and the robots sitemap reference use that published URL.
 - [ ] Open the live site in a private/incognito window and test navigation, images, map, JavaScript and both forms.
 - [ ] Complete FormSubmit recipient activation and test real email delivery.
 - [ ] Capture the requested assessment evidence and submit both the GitHub repository link and live website link to the LMS.
 
-**Assessment honesty note:** The repository contains the documented implementation, but manual browser tests, external FormSubmit activation/email delivery, confirmation of the map pin, off-page SEO activity and GitHub Pages deployment must be verified separately before they can be reported as completed.
+**Assessment honesty note:** The repository contains the documented implementation, but manual browser tests, external FormSubmit activation/email delivery, confirmation of the map pin, off-page SEO activity and successful live-page loading must be verified separately before they can be reported as completed. GitHub Pages is enabled and its latest deployment workflow succeeded.
