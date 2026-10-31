@@ -462,6 +462,8 @@ The following changelog records the main development stages of the website. The 
 
 The project therefore demonstrates multiple incremental, descriptive commits rather than one large submission commit.
 
+- **2026-10-31 — Record additional user-confirmed Part 3 tests:** tablet layout, keyboard accessibility, reduced-motion behaviour and the latest successful GitHub Pages deployment were confirmed by the user and recorded in the testing matrix and publishing checklist.
+
 ---
 
 ## 15. References
@@ -909,11 +911,11 @@ Use this matrix during manual browser testing. Do not mark a test complete until
 | JavaScript | Test product search, shopping cart, FAQ accordion and product image lightbox | Product search, shopping-cart functions, FAQ expand/collapse and product image lightbox open/close work, as confirmed by the user | User confirmed search, cart, FAQ and lightbox tests passed |
 | Forms | Submit empty, invalid and valid Enquiry/Contact details | Clear errors for invalid input; valid request follows intended submission path | User confirmed Contact and Enquiry submissions work and emails are received |
 | SEO | Inspect titles, descriptions, headings, image alt text and sitemap URLs | All eight main HTML pages have titles, descriptions and canonical links; all checked images have `alt` attributes; sitemap and robots file use the project Pages URL | Static audit passed; live URL check pending |
-| Responsive design | Check the live website on a phone and use its navigation | User confirmed that the pages fit the phone screen and navigation works without horizontal scrolling; tablet and desktop checks remain separate | Phone test confirmed by user; tablet/desktop checks pending |
-| Accessibility | Use keyboard navigation and reduced-motion settings | Focus is visible and motion is reduced when requested | Pending manual verification |
+| Responsive design | Check the live website on phone, tablet and desktop widths | User confirmed that the phone layout fits without horizontal scrolling and that the tablet layout is also working; desktop check remains pending | Phone and tablet tests confirmed by user; desktop check pending |
+| Accessibility | Use keyboard navigation and reduced-motion settings | Focus is visible and motion is reduced when requested | Passed; user confirmed keyboard accessibility and reduced-motion behaviour |
 | Performance | Check image loading and browser console/network panel | No avoidable oversized assets or script errors | Pending manual verification |
 | Security | Inspect repository for credentials and test form handling | No secrets committed; no sensitive information requested by demo features | Pending manual verification |
-| Deployment workflow | Check the latest GitHub Pages Actions run and open the published homepage | GitHub Pages deployment workflow completed successfully; the user confirmed that the published ELITE WEAR homepage opens correctly | Passed (workflow and homepage) |
+| Deployment workflow | Check the latest GitHub Pages Actions run and open the published homepage | Latest GitHub Pages deployment shows a green Success status, as confirmed by the user; published homepage opens correctly | Passed; latest deployment success confirmed by user |
 | External stylesheet | Check the stylesheet link on each main HTML page | All eight main HTML pages reference the shared external `css/style.css` file | Passed (static audit) |
 | Repository | Inspect latest commit, README, assets and file paths | Correct branch contains the complete submission | Passed (main branch and required project files verified) |
 
@@ -930,17 +932,17 @@ Keep screenshots or other evidence showing:
 8. The GitHub repository showing the updated files and descriptive commit history.
 9. The deployed website URL working in a private/incognito browser window.
 
-**User-confirmed test results (2026-10-31):** The user confirmed that product search works, the shopping cart works, the FAQ questions expand and collapse, product pictures open in a larger lightbox and can be closed, Contact/Enquiry form submissions send emails that can be received, and the user confirmed that the website fits a phone screen with usable navigation and no horizontal scrolling. Tablet and desktop layout checks, keyboard accessibility and reduced-motion checks remain pending until individually tested.
+**User-confirmed test results (2026-10-31):** The user confirmed that product search works, the shopping cart works, the FAQ questions expand and collapse, product pictures open in a larger lightbox and can be closed, Contact/Enquiry form submissions send emails that can be received, the phone layout fits without horizontal scrolling, the tablet layout is working, keyboard accessibility works and reduced-motion settings work. The user also confirmed that the latest GitHub Pages deployment displays a green Success status. Desktop layout testing remains pending.
 
 ### 29.7 Final publishing checklist
 
 - [ ] Confirm the correct repository and `main` branch contain the latest files.
 - [ ] Confirm all HTML pages, CSS, JavaScript, images/assets, README, changelog, references, `robots.txt` and `sitemap.xml` are committed.
 - [x] GitHub Pages is enabled for this repository (`has_pages: true`) and the latest Pages build/deployment workflow completed successfully on 2026-10-31.
-- [ ] Open the proposed published URL in a browser and confirm it loads; the browser check could not be completed from this review.
+- [x] User confirmed that the published homepage opens correctly.
 - [ ] Confirm canonical links, Open Graph URLs, sitemap URLs and the robots sitemap reference use that published URL.
 - [ ] Open the live site in a private/incognito window and test navigation, images, map, JavaScript and both forms.
 - [x] FormSubmit recipient activation and email delivery: user confirmed that form submissions work and emails are received at `st10511240@rcconnect.edu.za`.
 - [ ] Capture the requested assessment evidence and submit both the GitHub repository link and live website link to the LMS.
 
-**Assessment honesty note:** The repository contains the documented implementation, but manual browser tests, confirmation of the map pin and off-page SEO activity must be verified separately before they can be reported as completed. The user has confirmed that Contact and Enquiry form submissions work and that the emails are received. The user has now confirmed that the published homepage opens correctly; this does not yet confirm every individual page, form or interactive control. A static source audit found no missing local HTML file paths or same-page fragments; all eight main pages link to the shared stylesheet and all checked images have alternative text. GitHub Pages is enabled and its latest deployment workflow succeeded.
+**Assessment honesty note:** The user has confirmed the latest GitHub Pages deployment is green/successful and the published homepage opens. The user has also confirmed successful phone and tablet layouts, keyboard accessibility and reduced-motion behaviour, as well as the previously recorded product search, cart, FAQ, lightbox and form/email tests. Desktop layout testing, confirmation of the map pin and off-page SEO activity still need separate verification. A static source audit found no missing local HTML file paths or same-page fragments; all eight main pages link to the shared stylesheet and all checked images have alternative text.
